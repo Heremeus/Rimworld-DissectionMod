@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <WorkGiverDef>
+        <defName>DoBillsMedicalHumanOperationOrgans</defName>
+        <label>dissect human corpse</label>
+        <giverClass>WorkGiver_DoBill</giverClass>
+        <workType>Doctor</workType>
+        <priorityInType>99</priorityInType>
+        <fixedBillGiverDefs>
+            <li>TableDissection</li>
+        </fixedBillGiverDefs>
+        <billGiversAllHumanlikes>true</billGiversAllHumanlikes>
+        <billGiversAllHumanlikesCorpses>true</billGiversAllHumanlikesCorpses>
+        <verb>dissect</verb>
+        <gerund>dissecting on</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+</Defs>

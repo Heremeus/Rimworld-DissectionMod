@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Humans -->
+    <RecipeDef>
+        <defName>DissectHuman</defName>
+        <label>dissect human</label>
+        <description>Dissects a dead human to improve medical skills.</description>
+        <jobString>Dissection.</jobString>
+        <workAmount>5000</workAmount>
+        <workSpeedStat>MedicalOperationSpeed</workSpeedStat>
+        <workSkill>Medicine</workSkill>
+        <workSkillLearnFactor>0</workSkillLearnFactor>
+        <effectWorking>Surgery</effectWorking>
+        <soundWorking>Recipe_Surgery</soundWorking>
+        <ingredients>
+            <li>
+                <filter>
+                    <categories>
+                        <li>Corpses</li>
+                    </categories>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <categories>
+                <li>Corpses</li>
+            </categories>
+            <exceptedCategories>
+                <li>CorpsesMechanoid</li>
+                <li>CorpsesAnimal</li>
+            </exceptedCategories>
+            <specialFiltersToDisallow>
+                <li>AllowRotten</li>
+            </specialFiltersToDisallow>
+        </fixedIngredientFilter>
+        <defaultIngredientFilter>
+            <thingDefs>
+                <li>Human_Corpse</li>
+            </thingDefs>
+            <specialFiltersToAllow>
+                <li>AllowCorpsesColonist</li>
+                <li>AllowCorpsesStranger</li>
+            </specialFiltersToAllow>
+        </defaultIngredientFilter>
+        <skillRequirements>
+            <Medicine>5</Medicine>
+        </skillRequirements>
+        <researchPrerequisite>Dissection</researchPrerequisite>
+    </RecipeDef>
+	
+	<!-- Animals -->
+	<!--<RecipeDef>
+        <defName>DissectAnimal</defName>
+        <label>dissect animal</label>
+        <description>Dissects a dead animal to improve medical skills.</description>
+        <jobString>Surgery.</jobString>
+        <workAmount>500</workAmount>
+        <workSpeedStat>MedicalOperationSpeed</workSpeedStat>
+        <workSkill>Medicine</workSkill>
+        <workSkillLearnFactor>8</workSkillLearnFactor>
+        <effectWorking>Surgery</effectWorking>
+        <soundWorking>Recipe_Surgery</soundWorking>
+        <ingredients>
+            <li>
+                <filter>
+                    <categories>
+                        <li>Corpses</li>
+                    </categories>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <specialProducts>
+            <li>Butchery</li>
+        </specialProducts>
+        <fixedIngredientFilter>
+            <categories>
+                <li>Corpses</li>
+            </categories>
+            <exceptedCategories>
+                <li>Human_Corpse</li>
+                <li>CorpsesMechanoid</li>
+            </exceptedCategories>
+            <specialFiltersToDisallow>
+                <li>AllowRotten</li>
+            </specialFiltersToDisallow>
+        </fixedIngredientFilter>
+        <defaultIngredientFilter>
+            <thingDefs>
+				<li>CorpsesAnimal</li>
+            </thingDefs>
+        </defaultIngredientFilter>
+        <skillRequirements>
+            <Medicine>0</Medicine>
+        </skillRequirements>
+        <researchPrerequisite>Dissection</researchPrerequisite>
+    </RecipeDef>-->
+</Defs>
