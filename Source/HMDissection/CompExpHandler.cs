@@ -24,16 +24,9 @@ namespace HMDissection
                 return;
             }
             
-            List<Thing> affectedThings = (parent.InteractionCell.GetThingList(parent.Map));
-            
-            foreach (Thing t in affectedThings)
-            {
-                Pawn p = t as Pawn;
-                if(p != null)
-                {
-                    
-                }
-            }
+            parent.InteractionCell.GetThingList(parent.Map).All(thing => 
+				thing is Pawn pawn && pawn.CurJob?.targetA == parent
+			);
         }
     }
 }
