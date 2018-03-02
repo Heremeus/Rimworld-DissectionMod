@@ -47,18 +47,20 @@
 		<inspectorTabs>
 			<li>ITab_Bills</li>
 		</inspectorTabs>
-		<li Class="HediffDamageComps.CompProperties_DamageDealer">
-			<compClass>HMDissection.CompExpHandler</compClass>
-			<expAmount>1</expAmount>
-		</li>
 		<building>
 			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
-			</building>
+		</building>
+			<tickerType>Normal</tickerType>
 		<comps>
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
 					<li>ToolCabinet</li>
 				</linkableFacilities>
+			</li>
+			<!-- Component for handling the exp gain -->
+			<li Class="HMDissection.CompProperties_ExpHandler">
+				<compClass>HMDissection.CompExpHandler</compClass>
+				<baseExpPerSecond>6</baseExpPerSecond>
 			</li>
 		</comps>
 		<designationHotKey>Misc3</designationHotKey>

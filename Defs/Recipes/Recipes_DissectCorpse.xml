@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<!-- Humans -->
-    <RecipeDef>
+    <RecipeDef Class="HMDissection.Recipes_DissectHuman">
         <defName>DissectHuman</defName>
         <label>dissect human</label>
         <description>Dissects a dead human to improve medical skills.</description>
         <jobString>Dissection.</jobString>
-        <workAmount>5000</workAmount>
+        <workAmount>1500</workAmount>
         <workSpeedStat>MedicalOperationSpeed</workSpeedStat>
         <workSkill>Medicine</workSkill>
         <workSkillLearnFactor>0</workSkillLearnFactor>

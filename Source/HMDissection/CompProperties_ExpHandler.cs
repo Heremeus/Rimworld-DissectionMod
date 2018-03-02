@@ -4,7 +4,7 @@ namespace HMDissection
 {
     public class CompProperties_ExpHandler : CompProperties
     {
-        public int expAmount;
+        public float baseExpPerSecond;
 
         public CompProperties_ExpHandler()
         {

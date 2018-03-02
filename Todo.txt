@@ -1,0 +1,10 @@
+- Custom thougts
+- Custom inspired (Next dissectio in x days will yield bonus exp)
+- Destroy corpse during dissection rather than making it disappear at the end
+  - Not disappearing anymore
+  - Need post patch to bring corpse to stockpile or start next dissection
+  - Need to destroy corpse partly
+- Custom exp generation
+  - Depending on % of corpse that is remaining
+  - Bonus for diseases (more knowledge)
+  - Malus for destroyed body parts (can't dissect them)
