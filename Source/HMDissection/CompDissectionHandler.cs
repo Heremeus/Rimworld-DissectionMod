@@ -7,17 +7,17 @@ using Verse;
 
 namespace HMDissection
 {
-    public class CompExpHandler : ThingComp
+    public class CompDissectionHandler : ThingComp
     {
         private const float O_TICKS_PER_SECOND = 1f/60f;
 
-        private float timeSinceLastDamage = 0f;
+        private float leftoverNutritionToDissect = 0f;
 
-        public CompProperties_ExpHandler Props
+        public CompProperties_DissectionHandler Props
         {
             get
             {
-                return (CompProperties_ExpHandler)props;
+                return (CompProperties_DissectionHandler)props;
             }
         }
 
@@ -39,33 +39,28 @@ namespace HMDissection
             Pawn interactingPawn = parent.InteractionCell.GetThingList(parent.Map)
                 .Select(thing => thing as Pawn)
                 .FirstOrDefault(pawn => pawn != null && pawn.CurJob?.targetA == parent);
-            if(interactingPawn != null)
+            if (interactingPawn != null)
             {
                 // Determine the amount of exp
-                float exp =  Props.baseExpPerSecond * O_TICKS_PER_SECOND;
+                float exp = Props.baseExpPerSecond * O_TICKS_PER_SECOND;
                 interactingPawn.skills.GetSkill(interactingPawn.CurJob.RecipeDef.workSkill).Learn(exp, false);
-            }
-
-
-            // TODO: Split this into another comp
-            if (timeSinceLastDamage > 1.5f)
-            {
-                // Damage corpse
-                Building_WorkTable table = parent as Building_WorkTable;
-                Corpse corpse = parent.Position.GetThingList(parent.Map).FirstOrDefault(thing => thing is Corpse) as Corpse;
-                if (corpse != null)
+                
+                if (leftoverNutritionToDissect <= 0f)
                 {
-                    DamageDef dDef = new DamageDef();
-                    DamageInfo dInfo = new DamageInfo(dDef, 1);
-                    //corpse.TakeDamage(dInfo);
-                    Dissected(corpse, interactingPawn, 0.1f);
+                    // Take off parts from the corpse if there is nothing left to dissect
+                    Building_WorkTable table = parent as Building_WorkTable;
+                    Corpse corpse = parent.Position.GetThingList(parent.Map).FirstOrDefault(thing => thing is Corpse) as Corpse;
+                    if (corpse != null)
+                    {
+                        leftoverNutritionToDissect = Dissected(corpse, interactingPawn);
+                        Log.Message("Got " + leftoverNutritionToDissect + " nutrition from corpse.");
+                    }
                 }
-                timeSinceLastDamage = 0f;
+                leftoverNutritionToDissect -= Props.nutritionDissectedPerSecond * O_TICKS_PER_SECOND;
             }
-            timeSinceLastDamage += O_TICKS_PER_SECOND;
         }
 
-        private float Dissected(Corpse corpse, Pawn actor, float damageDealt)
+        private float Dissected(Corpse corpse, Pawn actor)
         {
             if (corpse.Destroyed)
             {
@@ -91,7 +86,7 @@ namespace HMDissection
             }
             int num;
             float result;
-            DissectedCalculateAmounts(corpse, actor, damageDealt, out num, out result);
+            DissectedCalculateAmounts(corpse, actor, out num, out result);
             // TODO: Joy gain from medical operation? Or already handled by recipe?
             //if (!actor.Dead && actor.needs.joy != null && Mathf.Abs(corpse.def.ingestible.joy) > 0.0001f && num > 0)
             //{
@@ -112,9 +107,9 @@ namespace HMDissection
             return result;
         }
 
-        private void DissectedCalculateAmounts(Corpse corpse, Pawn actor, float nutritionWanted, out int numTaken, out float nutritionDissected)
+        private void DissectedCalculateAmounts(Corpse corpse, Pawn actor, out int numTaken, out float nutritionDissected)
         {
-            BodyPartRecord bodyPartRecord = GetBestBodyPartToDissect(corpse, actor, nutritionWanted);
+            BodyPartRecord bodyPartRecord = GetBestBodyPartToDissect(corpse, actor);
             if (bodyPartRecord == null)
             {
                 Log.Error(string.Concat(new object[]
@@ -155,7 +150,13 @@ namespace HMDissection
             nutritionDissected = bodyPartNutrition;
         }
 
-        private BodyPartRecord GetBestBodyPartToDissect(Corpse corpse, Pawn ingester, float nutritionWanted)
+        /// <summary>
+        /// Returns the body part with the fewest nutrition first
+        /// </summary>
+        /// <param name="corpse"></param>
+        /// <param name="ingester"></param>
+        /// <returns></returns>
+        private BodyPartRecord GetBestBodyPartToDissect(Corpse corpse, Pawn ingester)
         {
             IEnumerable<BodyPartRecord> source = from x in corpse.InnerPawn.health.hediffSet.GetNotMissingParts(BodyPartHeight.Undefined, BodyPartDepth.Undefined)
                                                  where x.depth == BodyPartDepth.Outside && FoodUtility.GetBodyPartNutrition(corpse.InnerPawn, x) > 0.001f
@@ -164,7 +165,7 @@ namespace HMDissection
             {
                 return null;
             }
-            return source.MinBy((BodyPartRecord x) => Mathf.Abs(FoodUtility.GetBodyPartNutrition(corpse.InnerPawn, x) - nutritionWanted));
+            return source.MinBy((BodyPartRecord x) => FoodUtility.GetBodyPartNutrition(corpse.InnerPawn, x));
         }
 
         private List<ThoughtDef> ThoughtsFromDissection(Pawn dissector, Corpse corpse, ThingDef thingDef)

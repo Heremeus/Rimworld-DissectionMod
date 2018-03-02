@@ -57,10 +57,11 @@
 					<li>ToolCabinet</li>
 				</linkableFacilities>
 			</li>
-			<!-- Component for handling the exp gain -->
-			<li Class="HMDissection.CompProperties_ExpHandler">
-				<compClass>HMDissection.CompExpHandler</compClass>
+			<!-- Component for handling the dissection -->
+			<li Class="HMDissection.CompProperties_DissectionHandler">
+				<compClass>HMDissection.CompDissectionHandler</compClass>
 				<baseExpPerSecond>6</baseExpPerSecond>
+				<nutritionDissectedPerSecond>0.025</nutritionDissectedPerSecond>
 			</li>
 		</comps>
 		<designationHotKey>Misc3</designationHotKey>

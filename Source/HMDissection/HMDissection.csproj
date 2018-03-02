@@ -59,8 +59,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompExpHandler.cs" />
-    <Compile Include="CompProperties_ExpHandler.cs" />
+    <Compile Include="CompDissectionHandler.cs" />
+    <Compile Include="CompProperties_DissectionHandler.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipes_DissectHuman.cs" />
