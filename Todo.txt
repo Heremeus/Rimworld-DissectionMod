@@ -9,3 +9,9 @@
     - Probably should use custom calculation as "eyes" are highly interesting for surgery but only yield very low nutrition
   - Bonus for diseases (more knowledge)
   - Malus for destroyed body parts (can't dissect them) -> may already be included in nutrition value?
+- Limit the dissection performable on one corpse
+  - Only parts like eyes for example
+  - Would balance the mod
+    - Less exp to gain
+	- Still need to get rid of the corpse afterwards
+  - May be annoying for the player?

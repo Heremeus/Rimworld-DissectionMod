@@ -6,7 +6,7 @@
         <label>dissect human</label>
         <description>Dissects a dead human to improve medical skills.</description>
         <jobString>Dissection.</jobString>
-        <workAmount>1500</workAmount>
+        <workAmount>2500</workAmount>
         <workSpeedStat>MedicalOperationSpeed</workSpeedStat>
         <workSkill>Medicine</workSkill>
         <workSkillLearnFactor>0</workSkillLearnFactor>
