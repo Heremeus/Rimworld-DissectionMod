@@ -174,12 +174,12 @@ namespace HMDissection
         /// Returns the body part with the fewest nutrition first
         /// </summary>
         /// <param name="corpse"></param>
-        /// <param name="ingester"></param>
+        /// <param name="actor"></param>
         /// <returns></returns>
-        private BodyPartRecord GetNextBodyPartToDissect(Corpse corpse, Pawn ingester)
+        private BodyPartRecord GetNextBodyPartToDissect(Corpse corpse, Pawn actor)
         {
             IEnumerable<BodyPartRecord> source = from x in corpse.InnerPawn.health.hediffSet.GetNotMissingParts(BodyPartHeight.Undefined, BodyPartDepth.Undefined)
-                                                 where x.depth == BodyPartDepth.Outside
+                                                 where x.depth == BodyPartDepth.Outside && FoodUtility.GetBodyPartNutrition(corpse.InnerPawn, x) > 0.00001f
                                                  select x;
             if (!source.Any<BodyPartRecord>())
             {
@@ -189,7 +189,7 @@ namespace HMDissection
             var notMissingChildParts = bodyPart.GetDirectChildParts().Where(part => !corpse.InnerPawn.health.hediffSet.PartIsMissing(part));
             while (notMissingChildParts.Any())
             {
-                bodyPart = bodyPart.GetDirectChildParts().RandomElementByWeight(part => 1f / FoodUtility.GetBodyPartNutrition(corpse.InnerPawn, part));
+                bodyPart = notMissingChildParts.RandomElementByWeight(part => 1f / FoodUtility.GetBodyPartNutrition(corpse.InnerPawn, part));
                 notMissingChildParts = bodyPart.GetDirectChildParts().Where(part => !corpse.InnerPawn.health.hediffSet.PartIsMissing(part));
             }
             return bodyPart;
