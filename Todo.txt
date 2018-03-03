@@ -1,17 +1,16 @@
-- Custom thougts
 - Custom tale?
-- Maybe add the chance to catch a disease when dissecting in a none-sterile enviroment?
-- Custom inspired (Next dissectio in x days will yield bonus exp)
-- To decide: Destroy the body in one bill or make it endure multiple bills for longer dissection (balancing)
-  - Multiple builds would require hauling the corpse back to the stockpile
+- Danger of dissection
+  - Actor cuts himself and may even catch an infection?
+  - Add a chance to catch diseases the corpse has if the environment is non sterile
+- Custom inspired (Next dissection in x days will yield bonus exp)
 - Custom exp generation
   - Depends on the nutrition values of the body parts right now
-    - Probably should use custom calculation as "eyes" are highly interesting for surgery but only yield very low nutrition
+  - Probably should use custom calculation as "eyes" are highly interesting for surgery but only yield very low nutrition
   - Bonus for diseases (more knowledge)
   - Malus for destroyed body parts (can't dissect them) -> may already be included in nutrition value?
 - Limit the dissection performable on one corpse
-  - Only parts like eyes for example
-  - Would balance the mod
+    - Only parts like eyes for example
+    - Would balance the mod
     - Less exp to gain
 	- Still need to get rid of the corpse afterwards
-  - May be annoying for the player?
+	- May be annoying for the player?

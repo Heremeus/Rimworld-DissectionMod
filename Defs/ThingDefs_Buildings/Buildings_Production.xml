@@ -31,7 +31,7 @@
 			<WorkToBuild>2600</WorkToBuild>
 			<MaxHitPoints>200</MaxHitPoints>
 			<Flammability>1.0</Flammability>
-			<Cleanliness>-5</Cleanliness>
+			<Cleanliness>2</Cleanliness>
 		</statBases>
 		<size>(3,1)</size>
 		<designationCategory>Production</designationCategory>
@@ -60,8 +60,14 @@
 			<!-- Component for handling the dissection -->
 			<li Class="HMDissection.CompProperties_DissectionHandler">
 				<compClass>HMDissection.CompDissectionHandler</compClass>
-				<baseExpPerSecond>6</baseExpPerSecond>
 				<nutritionDissectedPerSecond>0.025</nutritionDissectedPerSecond>
+				<baseExpPerSecond>6</baseExpPerSecond>
+				<baseDiseasesBonusPercent>0.25</baseDiseasesBonusPercent>
+				<diseaseStackLimit>3</diseaseStackLimit>
+				<stackedDiseaseMultiplier>0.5</stackedDiseaseMultiplier>
+				<baseDamageMalusPercent>0.0666</baseDamageMalusPercent>
+				<damageStackLimit>10</damageStackLimit>
+				<stackedDamageMultiplier>1.0</stackedDamageMultiplier>
 			</li>
 		</comps>
 		<designationHotKey>Misc3</designationHotKey>

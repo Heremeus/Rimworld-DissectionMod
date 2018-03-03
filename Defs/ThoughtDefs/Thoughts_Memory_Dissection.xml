@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThoughtDef>
+		<defName>DissectionNoPassion</defName>
+		<durationDays>2.0</durationDays>
+		<stackLimit>2</stackLimit>
+		<stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+		<nullifyingTraits>
+			<li>Psychopath</li>
+			<li>Bloodlust</li>
+			<!--li>Cannibal></li-->
+		</nullifyingTraits>
+		<stages>
+			<li>
+				<label>I desecrated a corpse</label>
+				<description>I dismembered a human corpse - gross.</description>
+				<baseMoodEffect>-5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>DissectionMinorPassion</defName>
+		<durationDays>1.0</durationDays>
+		<stackLimit>1</stackLimit>
+		<stackedEffectMultiplier>1</stackedEffectMultiplier>
+		<stages>
+			<li>
+				<label>I dissected a human</label>
+				<description>I dismembered a human corpse but the knowledge helps us to survive.</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>DissectionMajorPassion</defName>
+		<durationDays>3.0</durationDays>
+		<stackLimit>3</stackLimit>
+		<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+		<stages>
+			<li>
+				<label>I learned about anatomy</label>
+				<description>I dissected a human corpse and learned about the human anatomy.</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+</Defs>

@@ -61,6 +61,8 @@
   <ItemGroup>
     <Compile Include="CompDissectionHandler.cs" />
     <Compile Include="CompProperties_DissectionHandler.cs" />
+    <Compile Include="DissectionDefOf.cs" />
+    <Compile Include="DissectionUtility.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipes_DissectHuman.cs" />
