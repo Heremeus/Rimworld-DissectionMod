@@ -42,7 +42,7 @@ namespace HMDissection
                 .Select(thing => thing as Pawn)
                 .FirstOrDefault(pawn => pawn != null && pawn.CurJob?.targetA == parent);
             Corpse corpse = parent.Position.GetThingList(parent.Map).FirstOrDefault(thing => thing is Corpse) as Corpse;
-            if (interactingPawn != null && corpse != null)
+            if (interactingPawn != null && corpse != null && !corpse.Destroyed)
             {
                 if (leftoverNutritionToDissect <= 0f)
                 {
@@ -50,19 +50,22 @@ namespace HMDissection
                     if (currentDissectedPart != null)
                     {
                         DestroyPart(interactingPawn, corpse, currentDissectedPart);
-                    }
 #if DEBUG
-                    tickLog += ("Destroyed " + currentDissectedPart + " during dissection") + Environment.NewLine;
+                        tickLog += ("Destroyed " + currentDissectedPart + " during dissection") + Environment.NewLine;
 #endif
+                    }
+
+                    // Check if the last part was destroyed
+                    if (corpse.Destroyed)
+                    {
+                        return;
+                    }
 
                     // Get next part from the corpse to dissect
-                    if (corpse != null)
-                    {
-                        leftoverNutritionToDissect = GetNextDissectionPart(corpse, interactingPawn, out currentDissectedPart);
+                    leftoverNutritionToDissect = GetNextDissectionPart(corpse, interactingPawn, out currentDissectedPart);
 #if DEBUG
-                        tickLog += ("Got " + leftoverNutritionToDissect + " nutrition from corpse.") + Environment.NewLine;
+                    tickLog += ("Got " + leftoverNutritionToDissect + " nutrition from corpse for " + currentDissectedPart) + Environment.NewLine;
 #endif
-                    }
                 }
                 leftoverNutritionToDissect -= Props.nutritionDissectedPerSecond * O_TICKS_PER_SECOND;
 
@@ -87,11 +90,11 @@ namespace HMDissection
             {
                 if (PawnUtility.ShouldSendNotificationAbout(corpse.InnerPawn) && corpse.InnerPawn.RaceProps.Humanlike)
                 {
-                    Messages.Message("MessageDissectedByMedic".Translate(new object[]
+                    Messages.Message("Dissection_MessageDissectedByMedic".Translate(new object[]
                     {
                         corpse.InnerPawn.LabelShort,
                         actor.LabelIndefinite()
-                    }).CapitalizeFirst(), actor, MessageTypeDefOf.NegativeEvent);
+                    }).CapitalizeFirst(), actor, MessageTypeDefOf.NeutralEvent);
                 }
                 numTaken = 1;
             }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <ResearchProjectDef>
-        <defName>Dissection</defName>
+        <defName>DissectionResearchProj</defName>
         <label>Dissection</label>
         <description>The dissection of corpses can improve the medical knowledge. This research unlocks the dissection table.</description>
-        <baseCost>500</baseCost>
-        <tab>Dissection</tab>
+        <baseCost>350</baseCost>
+        <tab>DissectionResearchTab</tab>
         <techLevel>Medieval</techLevel>
         <researchViewX>0</researchViewX>
         <researchViewY>0</researchViewY>

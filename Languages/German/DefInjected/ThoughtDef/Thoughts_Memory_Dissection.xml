@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<DissectionNoPassion.stages.0.label>Leiche entweiht</DissectionNoPassion.stages.0.label>
+	<DissectionNoPassion.stages.0.description>Ich habe einen Menschen zerstückelt... Widerlich!</DissectionNoPassion.stages.0.description>
+	<DissectionMinorPassion.stages.0.label>Leiche seziert</DissectionMinorPassion.stages.0.label>
+	<DissectionMinorPassion.stages.0.description>Ich habe einen Menschen aufgeschnitten, aber das Wissen kann uns helfen, zu überleben.</DissectionMinorPassion.stages.0.description>
+	<DissectionMajorPassion.stages.0.label>Anatomy studiert</DissectionMajorPassion.stages.0.label>
+	<DissectionMajorPassion.stages.0.description>Ich habe eine Leiche seziert und viel über die menschliche Anatomy gelernt.</DissectionMajorPassion.stages.0.description>
+</LanguageData>

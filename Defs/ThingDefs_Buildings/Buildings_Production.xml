@@ -41,7 +41,7 @@
 		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
 		<surfaceType>Item</surfaceType>
 		<recipes>
-			<li>DissectHuman</li>
+			<li>DissectHumanRecipe</li>
 			<!--li>DissectAnimal</li-->
 		</recipes>
 		<inspectorTabs>
@@ -60,13 +60,13 @@
 			<!-- Component for handling the dissection -->
 			<li Class="HMDissection.CompProperties_DissectionHandler">
 				<compClass>HMDissection.CompDissectionHandler</compClass>
-				<nutritionDissectedPerSecond>0.025</nutritionDissectedPerSecond>
-				<baseExpPerSecond>6</baseExpPerSecond>
+				<nutritionDissectedPerSecond>0.05</nutritionDissectedPerSecond>
+				<baseExpPerSecond>5</baseExpPerSecond>
 				<baseDiseasesBonusPercent>0.25</baseDiseasesBonusPercent>
 				<diseaseStackLimit>3</diseaseStackLimit>
 				<stackedDiseaseMultiplier>0.5</stackedDiseaseMultiplier>
-				<baseDamageMalusPercent>0.0666</baseDamageMalusPercent>
-				<damageStackLimit>10</damageStackLimit>
+				<baseDamageMalusPercent>0.15</baseDamageMalusPercent>
+				<damageStackLimit>6</damageStackLimit>
 				<stackedDamageMultiplier>1.0</stackedDamageMultiplier>
 			</li>
 		</comps>

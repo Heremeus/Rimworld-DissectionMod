@@ -6,7 +6,7 @@
 		<label>Main</label>
 	</ResearchTabDef>
 	<ResearchTabDef>
-		<defName>Dissection</defName>
+		<defName>DissectionResearchTab</defName>
 		<label>Dissection</label>
 	</ResearchTabDef>
 </Defs>

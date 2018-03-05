@@ -3,8 +3,8 @@
 	<ThoughtDef>
 		<defName>DissectionNoPassion</defName>
 		<durationDays>2.0</durationDays>
-		<stackLimit>2</stackLimit>
-		<stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+		<stackLimit>1</stackLimit>
+		<stackedEffectMultiplier>1</stackedEffectMultiplier>
 		<nullifyingTraits>
 			<li>Psychopath</li>
 			<li>Bloodlust</li>
@@ -27,7 +27,7 @@
 			<li>
 				<label>I dissected a human</label>
 				<description>I dismembered a human corpse but the knowledge helps us to survive.</description>
-				<baseMoodEffect>1</baseMoodEffect>
+				<baseMoodEffect>2</baseMoodEffect>
 			</li>
 		</stages>
 	</ThoughtDef>

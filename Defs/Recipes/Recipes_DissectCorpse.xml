@@ -2,11 +2,11 @@
 <Defs>
 	<!-- Humans -->
     <RecipeDef Class="HMDissection.Recipes_DissectHuman">
-        <defName>DissectHuman</defName>
+        <defName>DissectHumanRecipe</defName>
         <label>dissect human</label>
-        <description>Dissects a dead human to improve medical skills.</description>
+        <description>Dissects a human corpse to improve medical skills.</description>
         <jobString>Dissection.</jobString>
-        <workAmount>2500</workAmount>
+        <workAmount>3000</workAmount>
         <workSpeedStat>MedicalOperationSpeed</workSpeedStat>
         <workSkill>Medicine</workSkill>
         <workSkillLearnFactor>0</workSkillLearnFactor>
@@ -46,7 +46,7 @@
         <skillRequirements>
             <Medicine>5</Medicine>
         </skillRequirements>
-        <researchPrerequisite>Dissection</researchPrerequisite>
+        <researchPrerequisite>DissectionResearchProj</researchPrerequisite>
     </RecipeDef>
 	
 	<!-- Animals -->
