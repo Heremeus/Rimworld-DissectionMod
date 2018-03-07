@@ -20,7 +20,7 @@
 	</ThoughtDef>
 	<ThoughtDef>
 		<defName>DissectionMinorPassion</defName>
-		<durationDays>1.0</durationDays>
+		<durationDays>1.5</durationDays>
 		<stackLimit>1</stackLimit>
 		<stackedEffectMultiplier>1</stackedEffectMultiplier>
 		<stages>
@@ -33,14 +33,14 @@
 	</ThoughtDef>
 	<ThoughtDef>
 		<defName>DissectionMajorPassion</defName>
-		<durationDays>3.0</durationDays>
-		<stackLimit>3</stackLimit>
+		<durationDays>5.0</durationDays>
+		<stackLimit>1</stackLimit>
 		<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
 		<stages>
 			<li>
 				<label>I learned about anatomy</label>
-				<description>I dissected a human corpse and learned about the human anatomy.</description>
-				<baseMoodEffect>5</baseMoodEffect>
+				<description>I dissected a corpse and learned about the human anatomy.</description>
+				<baseMoodEffect>6</baseMoodEffect>
 			</li>
 		</stages>
 	</ThoughtDef>

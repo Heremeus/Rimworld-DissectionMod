@@ -50,6 +50,7 @@ namespace HMDissection
                     if (currentDissectedPart != null)
                     {
                         DestroyPart(interactingPawn, corpse, currentDissectedPart);
+                        currentDissectedPart = null;
 #if DEBUG
                         tickLog += ("Destroyed " + currentDissectedPart + " during dissection") + Environment.NewLine;
 #endif
@@ -58,6 +59,15 @@ namespace HMDissection
                     // Check if the last part was destroyed
                     if (corpse.Destroyed)
                     {
+                        // TODO different tales depending on who was dissected (colonist vs stranger)
+                        if (interactingPawn.IsColonist)
+                        {
+                            TaleRecorder.RecordTale(DissectionDefOf.Dissected, new object[]
+                            {
+                                interactingPawn,
+                                corpse.InnerPawn
+                            });
+                        }
                         return;
                     }
 
@@ -132,7 +142,6 @@ namespace HMDissection
                 part = null;
                 return 0f;
             }
-            actor.mindState.lastIngestTick = Find.TickManager.TicksGame;
             if (actor.needs.mood != null)
             {
                 List<ThoughtDef> list = ThoughtsFromDissection(actor, corpse, corpse.def);
@@ -149,7 +158,6 @@ namespace HMDissection
                 //    actor
                 //});
             }
-            int num;
             float result;
             DissectedCalculateAmounts(corpse, actor, out result, out part);
             return result;
@@ -202,6 +210,7 @@ namespace HMDissection
         
         private List<ThoughtDef> ThoughtsFromDissection(Pawn actor, Corpse corpse, ThingDef thingDef)
         {
+            // TODO: Thoughts depending on wether the corpse was a colonist, prisoner, enemy or stranger
             List<ThoughtDef> thoughts = new List<ThoughtDef>();
             if(actor.skills.GetSkill(SkillDefOf.Medicine).passion == Passion.None && !actor.story.traits.HasTrait(TraitDefOf.Cannibal))
             {

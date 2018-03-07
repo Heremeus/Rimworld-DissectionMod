@@ -12,5 +12,6 @@ namespace HMDissection
         public static ThoughtDef DissectionNoPassion;
         public static ThoughtDef DissectionMinorPassion;
         public static ThoughtDef DissectionMajorPassion;
+        public static TaleDef Dissected;
     }
 }
