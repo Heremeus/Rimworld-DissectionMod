@@ -7,7 +7,7 @@
         <description>Dissects a human corpse to improve medical skills.</description>
         <jobString>Dissection.</jobString>
         <workAmount>3000</workAmount>
-        <workSpeedStat>MedicalOperationSpeed</workSpeedStat>
+        <!--Not using this one to always need the same time workSpeedStat>MedicalOperationSpeed</workSpeedStat-->
         <workSkill>Medicine</workSkill>
         <workSkillLearnFactor>0</workSkillLearnFactor>
         <effectWorking>Surgery</effectWorking>

@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 using System;
+using Verse.AI;
 
 namespace HMDissection
 {
@@ -38,18 +39,27 @@ namespace HMDissection
                 return;
             }
             
-            Pawn interactingPawn = parent.InteractionCell.GetThingList(parent.Map)
+            Pawn dissector = parent.InteractionCell.GetThingList(parent.Map)
                 .Select(thing => thing as Pawn)
                 .FirstOrDefault(pawn => pawn != null && pawn.CurJob?.targetA == parent);
             Corpse corpse = parent.Position.GetThingList(parent.Map).FirstOrDefault(thing => thing is Corpse) as Corpse;
-            if (interactingPawn != null && corpse != null && !corpse.Destroyed)
+            if (dissector != null && corpse != null && !corpse.Destroyed)
             {
                 if (leftoverNutritionToDissect <= 0f)
                 {
                     // Destroy the part that was dissected
                     if (currentDissectedPart != null)
                     {
-                        DestroyPart(interactingPawn, corpse, currentDissectedPart);
+                        if(currentDissectedPart.def.defName.ToLower().Contains("torso"))
+                        {
+                            // Destroyed last part, spawn products
+                            SpawnDissectionProducts(dissector, corpse);
+#if DEBUG
+                            tickLog += ("Destroying torso, spawning products now.") + Environment.NewLine;
+#endif
+                        }
+
+                        DestroyPart(dissector, corpse, currentDissectedPart);
                         currentDissectedPart = null;
 #if DEBUG
                         tickLog += ("Destroyed " + currentDissectedPart + " during dissection") + Environment.NewLine;
@@ -60,11 +70,11 @@ namespace HMDissection
                     if (corpse.Destroyed)
                     {
                         // TODO different tales depending on who was dissected (colonist vs stranger)
-                        if (interactingPawn.IsColonist)
+                        if (dissector.IsColonist)
                         {
                             TaleRecorder.RecordTale(DissectionDefOf.Dissected, new object[]
                             {
-                                interactingPawn,
+                                dissector,
                                 corpse.InnerPawn
                             });
                         }
@@ -72,7 +82,7 @@ namespace HMDissection
                     }
 
                     // Get next part from the corpse to dissect
-                    leftoverNutritionToDissect = GetNextDissectionPart(corpse, interactingPawn, out currentDissectedPart);
+                    leftoverNutritionToDissect = GetNextDissectionPart(corpse, dissector, out currentDissectedPart);
 #if DEBUG
                     tickLog += ("Got " + leftoverNutritionToDissect + " nutrition from corpse for " + currentDissectedPart) + Environment.NewLine;
 #endif
@@ -82,7 +92,7 @@ namespace HMDissection
 
                 // Determine the amount of exp
                 float exp = Props.baseExpPerSecond * O_TICKS_PER_SECOND * GetExpMultiplierForCorpse(corpse, currentDissectedPart);
-                interactingPawn.skills.GetSkill(interactingPawn.CurJob.RecipeDef.workSkill).Learn(exp, false);
+                dissector.skills.GetSkill(dissector.CurJob.RecipeDef.workSkill).Learn(exp, false);
             }
 #if DEBUG
             if(!string.IsNullOrEmpty(tickLog))
@@ -93,7 +103,45 @@ namespace HMDissection
 #endif
         }
 
-        private static void DestroyPart(Pawn actor, Corpse corpse, BodyPartRecord part)
+        // Todo: Instead of spawning meat and leather, spawn custom item that can be butchered for meat and leather
+        private void SpawnDissectionProducts(Pawn dissector, Corpse corpse)
+        {
+            float efficiency = dissector.GetStatValue(StatDefOf.MedicalSurgerySuccessChance, false);
+            var products = DissectionProducts(dissector, corpse.InnerPawn, efficiency, efficiency * 0.333f).ToList();
+            if (products.Count > 1)
+            {
+                for (int i = 0; i < products.Count; i++)
+                {
+                    if (!GenPlace.TryPlaceThing(products[i], dissector.Position, dissector.Map, ThingPlaceMode.Near, null))
+                    {
+                        Log.Error(string.Concat(new object[]
+                        {
+                        dissector,
+                        " could not drop recipe product ",
+                        products[i],
+                        " near ",
+                        dissector.Position
+                        }));
+                    }
+                }
+            }
+            if (products.Count > 0)
+            {
+                products[0].SetPositionDirect(dissector.Position);
+                IntVec3 c;
+                if (StoreUtility.TryFindBestBetterStoreCellFor(products[0], dissector, dissector.Map, StoragePriority.Unstored, dissector.Faction, out c, true))
+                {
+                    dissector.carryTracker.TryStartCarry(products[0]);
+                    dissector.jobs.curJob.targetB = c;
+                    dissector.jobs.curJob.targetA = products[0];
+                    dissector.jobs.curJob.count = 99999;
+                    return;
+                }
+            }
+            return;
+        }
+
+        private static void DestroyPart(Pawn dissector, Corpse corpse, BodyPartRecord part)
         {
             int numTaken;
             if (part == corpse.InnerPawn.RaceProps.body.corePart)
@@ -103,8 +151,8 @@ namespace HMDissection
                     Messages.Message("Dissection_MessageDissectedByMedic".Translate(new object[]
                     {
                         corpse.InnerPawn.LabelShort,
-                        actor.LabelIndefinite()
-                    }).CapitalizeFirst(), actor, MessageTypeDefOf.NeutralEvent);
+                        dissector.LabelIndefinite()
+                    }).CapitalizeFirst(), dissector, MessageTypeDefOf.NeutralEvent);
                 }
                 numTaken = 1;
             }
@@ -116,10 +164,10 @@ namespace HMDissection
                 corpse.InnerPawn.health.AddHediff(hediff_MissingPart, null, null);
                 numTaken = 0;
             }
-            if (actor.RaceProps.Humanlike && Rand.Value < 0.001f)
+            if (dissector.RaceProps.Humanlike && Rand.Value < 0.001f)
             {
                 // TODO: Add (custom?) disease while dissecting?
-                //FoodUtility.AddFoodPoisoningHediff(actor, corpse);
+                //FoodUtility.AddFoodPoisoningHediff(dissector, corpse);
             }
             if (numTaken > 0)
             {
@@ -134,43 +182,43 @@ namespace HMDissection
             }
         }
 
-        private float GetNextDissectionPart(Corpse corpse, Pawn actor, out BodyPartRecord part)
+        private float GetNextDissectionPart(Corpse corpse, Pawn dissector, out BodyPartRecord part)
         {
             if (corpse.Destroyed)
             {
-                Log.Error(actor + " dissected destroyed thing " + corpse);
+                Log.Error(dissector + " dissected destroyed thing " + corpse);
                 part = null;
                 return 0f;
             }
-            if (actor.needs.mood != null)
+            if (dissector.needs.mood != null)
             {
-                List<ThoughtDef> list = ThoughtsFromDissection(actor, corpse, corpse.def);
+                List<ThoughtDef> list = ThoughtsFromDissection(dissector, corpse, corpse.def);
                 for (int j = 0; j < list.Count; j++)
                 {
-                    actor.needs.mood.thoughts.memories.TryGainMemory(list[j], null);
+                    dissector.needs.mood.thoughts.memories.TryGainMemory(list[j], null);
                 }
             }
-            if (actor.IsColonist)
+            if (dissector.IsColonist)
             {
                 // TODO: custom tale
                 //TaleRecorder.RecordTale(TaleDefOf.AteRawHumanlikeMeat, new object[]
                 //{
-                //    actor
+                //    dissector
                 //});
             }
             float result;
-            DissectedCalculateAmounts(corpse, actor, out result, out part);
+            DissectedCalculateAmounts(corpse, dissector, out result, out part);
             return result;
         }
 
-        private void DissectedCalculateAmounts(Corpse corpse, Pawn actor, out float nutritionDissected, out BodyPartRecord dissectedPart)
+        private void DissectedCalculateAmounts(Corpse corpse, Pawn dissector, out float nutritionDissected, out BodyPartRecord dissectedPart)
         {
-            dissectedPart = GetNextBodyPartToDissect(corpse, actor);
+            dissectedPart = GetNextBodyPartToDissect(corpse, dissector);
             if (dissectedPart == null)
             {
                 Log.Error(string.Concat(new object[]
                 {
-                    actor,
+                    dissector,
                     " dissected ",
                     this,
                     " but no body part was found. Replacing with core part."
@@ -185,9 +233,9 @@ namespace HMDissection
         /// Returns the body part with the fewest nutrition first
         /// </summary>
         /// <param name="corpse"></param>
-        /// <param name="actor"></param>
+        /// <param name="dissector"></param>
         /// <returns></returns>
-        private BodyPartRecord GetNextBodyPartToDissect(Corpse corpse, Pawn actor)
+        private BodyPartRecord GetNextBodyPartToDissect(Corpse corpse, Pawn dissector)
         {
             IEnumerable<BodyPartRecord> source = from x in corpse.InnerPawn.health.hediffSet.GetNotMissingParts(BodyPartHeight.Undefined, BodyPartDepth.Undefined)
                                                  where x.depth == BodyPartDepth.Outside && FoodUtility.GetBodyPartNutrition(corpse.InnerPawn, x) > 0.00001f
@@ -208,19 +256,19 @@ namespace HMDissection
         }
 
         
-        private List<ThoughtDef> ThoughtsFromDissection(Pawn actor, Corpse corpse, ThingDef thingDef)
+        private List<ThoughtDef> ThoughtsFromDissection(Pawn dissector, Corpse corpse, ThingDef thingDef)
         {
             // TODO: Thoughts depending on wether the corpse was a colonist, prisoner, enemy or stranger
             List<ThoughtDef> thoughts = new List<ThoughtDef>();
-            if(actor.skills.GetSkill(SkillDefOf.Medicine).passion == Passion.None && !actor.story.traits.HasTrait(TraitDefOf.Cannibal))
+            if(dissector.skills.GetSkill(SkillDefOf.Medicine).passion == Passion.None && !dissector.story.traits.HasTrait(TraitDefOf.Cannibal))
             {
                 thoughts.Add(DissectionDefOf.DissectionNoPassion);
             }
-            else if(actor.skills.GetSkill(SkillDefOf.Medicine).passion == Passion.Minor)
+            else if(dissector.skills.GetSkill(SkillDefOf.Medicine).passion == Passion.Minor)
             {
                 thoughts.Add(DissectionDefOf.DissectionMinorPassion);
             }
-            else if(actor.skills.GetSkill(SkillDefOf.Medicine).passion == Passion.Major)
+            else if(dissector.skills.GetSkill(SkillDefOf.Medicine).passion == Passion.Major)
             {
                 thoughts.Add(DissectionDefOf.DissectionMajorPassion);
             }
@@ -247,7 +295,64 @@ namespace HMDissection
 #if DEBUG
             tickLog += ("EXP Multiplier for corpse: " + multiplier) + Environment.NewLine;
 #endif
-            return Mathf.Max(multiplier, 0.333f);
+            return Mathf.Max(multiplier, 0.1f);
+        }
+
+        public IEnumerable<Thing> DissectionProducts(Pawn dissector, Pawn corpse, float meatEfficiency, float leatherEfficiency)
+        {
+            if (corpse.RaceProps.meatDef != null)
+            {
+                int meatCount = GenMath.RoundRandom(corpse.GetStatValue(StatDefOf.MeatAmount, true) * meatEfficiency);
+                if (meatCount > 0)
+                {
+                    Thing meat = ThingMaker.MakeThing(corpse.RaceProps.meatDef, null);
+                    meat.stackCount = meatCount;
+                    yield return meat;
+                }
+            }
+            foreach (Thing t in corpse.ButcherProducts(dissector, meatEfficiency))
+            {
+                yield return t;
+            }
+            if (corpse.RaceProps.leatherDef != null)
+            {
+                int leatherCount = GenMath.RoundRandom(corpse.GetStatValue(StatDefOf.LeatherAmount, true) * leatherEfficiency);
+                if (leatherCount > 0)
+                {
+                    Thing leather = ThingMaker.MakeThing(corpse.RaceProps.leatherDef, null);
+                    leather.stackCount = leatherCount;
+                    yield return leather;
+                }
+            }
+            //if (!corpse.RaceProps.Humanlike)
+            //{
+            //    PawnKindLifeStage lifeStage = corpse.ageTracker.CurKindLifeStage;
+            //    if (lifeStage.butcherBodyPart != null && (corpse.gender == Gender.None || (corpse.gender == Gender.Male && lifeStage.butcherBodyPart.allowMale) || (corpse.gender == Gender.Female && lifeStage.butcherBodyPart.allowFemale)))
+            //    {
+            //        for (;;)
+            //        {
+            //            BodyPartRecord record = (from x in corpse.health.hediffSet.GetNotMissingParts(BodyPartHeight.Undefined, BodyPartDepth.Undefined)
+            //                                     where x.IsInGroup(lifeStage.butcherBodyPart.bodyPartGroup)
+            //                                     select x).FirstOrDefault<BodyPartRecord>();
+            //            if (record == null)
+            //            {
+            //                break;
+            //            }
+            //            corpse.health.AddHediff(HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, corpse, record), null, null);
+            //            Thing thing;
+            //            if (lifeStage.butcherBodyPart.thing != null)
+            //            {
+            //                thing = ThingMaker.MakeThing(lifeStage.butcherBodyPart.thing, null);
+            //            }
+            //            else
+            //            {
+            //                thing = ThingMaker.MakeThing(record.def.spawnThingOnRemoved, null);
+            //            }
+            //            yield return thing;
+            //        }
+            //    }
+            //}
+            yield break;
         }
     }
 }
