@@ -6,7 +6,7 @@
         <label>dissect human</label>
         <description>Dissects a human corpse to improve medical skills.</description>
         <jobString>Dissection.</jobString>
-        <workAmount>3000</workAmount>
+        <workAmount>7500</workAmount>
         <!--Not using this one to always need the same time workSpeedStat>MedicalOperationSpeed</workSpeedStat-->
         <workSkill>Medicine</workSkill>
         <workSkillLearnFactor>0</workSkillLearnFactor>
@@ -48,7 +48,7 @@
             </specialFiltersToAllow>
         </defaultIngredientFilter>
         <skillRequirements>
-            <Medicine>5</Medicine>
+            <Medicine>3</Medicine>
         </skillRequirements>
         <researchPrerequisite>DissectionResearchProj</researchPrerequisite>
     </RecipeDef>

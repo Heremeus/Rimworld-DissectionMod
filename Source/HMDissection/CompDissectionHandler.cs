@@ -113,11 +113,13 @@ namespace HMDissection
         {
             float efficiency = dissector.GetStatValue(StatDefOf.MedicalSurgerySuccessChance, false);
             var products = DissectionProducts(dissector, corpse.InnerPawn, efficiency, efficiency * 0.333f).ToList();
+#if DEBUG
             Log.Message("Got following products: ");
             for(int i = 0; i < products.Count; ++i)
             {
                 Log.Message(i + " - " + products[i] + "("+products[i].def.defName+")");
             }
+#endif
             if (products.Count > 1)
             {
                 for (int i = 0; i < products.Count; i++)

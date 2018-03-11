@@ -45,13 +45,18 @@ namespace HMDissection
 
         public static void MakeRecipeProducts_PostFix(RecipeDef recipeDef, Pawn worker, List<Thing> ingredients, Thing dominantIngredient, ref IEnumerable<Thing> __result)
         {
-            float efficiency = worker.GetStatValue(StatDefOf.MedicalSurgerySuccessChance, false);
-            var products = DissectionProducts(worker, ((Corpse)dominantIngredient).InnerPawn, efficiency, efficiency * 0.333f).ToList();
-            __result = products;
-            Log.Message("Changed products to:");
-            for(int i = 0; i < products.Count; ++i)
+            if (recipeDef == DissectionDefOf.DissectHumanRecipe)
             {
-                Log.Message(i + " - " + products[i] + " (" + products[i].def.defName + ")");
+                float efficiency = worker.GetStatValue(StatDefOf.MedicalSurgerySuccessChance, false) * 0.666f;
+                var products = DissectionProducts(worker, ((Corpse)dominantIngredient).InnerPawn, efficiency, efficiency * 0.5f).ToList();
+                __result = products;
+#if DEBUG
+                Log.Message("Changed products to:");
+                for(int i = 0; i < products.Count; ++i)
+                {
+                    Log.Message(i + " - " + products[i] + " (" + products[i].def.defName + ")");
+                }
+#endif
             }
         }
 
