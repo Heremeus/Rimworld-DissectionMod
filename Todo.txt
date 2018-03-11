@@ -14,3 +14,5 @@
     - Less exp to gain
 	- Still need to get rid of the corpse afterwards
 	- May be annoying for the player?
+
+- Use custom JobDriver inherited from JobDriver_DoBill for these bills (much cleaner solution)

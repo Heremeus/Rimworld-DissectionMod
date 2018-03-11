@@ -45,6 +45,7 @@ namespace HMDissection
             Corpse corpse = parent.Position.GetThingList(parent.Map).FirstOrDefault(thing => thing is Corpse) as Corpse;
             if (dissector != null && corpse != null && !corpse.Destroyed)
             {
+                var speed = parent.GetStatValue(StatDefOf.WorkTableWorkSpeedFactor, true);
                 if (leftoverNutritionToDissect <= 0f)
                 {
                     // Destroy the part that was dissected
@@ -53,7 +54,11 @@ namespace HMDissection
                         if(currentDissectedPart.def.defName.ToLower().Contains("torso"))
                         {
                             // Destroyed last part, spawn products
-                            SpawnDissectionProducts(dissector, corpse);
+                            //SpawnDissectionProducts(dissector, corpse);
+
+                            // Make DoRecipeWork not fail
+                            JobDriver_DoBill jobDriver_DoBill = (JobDriver_DoBill)dissector.jobs.curDriver;
+                            jobDriver_DoBill.ReadyForNextToil();
 #if DEBUG
                             tickLog += ("Destroying torso, spawning products now.") + Environment.NewLine;
 #endif
@@ -87,11 +92,11 @@ namespace HMDissection
                     tickLog += ("Got " + leftoverNutritionToDissect + " nutrition from corpse for " + currentDissectedPart) + Environment.NewLine;
 #endif
                 }
-                leftoverNutritionToDissect -= Props.nutritionDissectedPerSecond * O_TICKS_PER_SECOND;
+                leftoverNutritionToDissect -= Props.nutritionDissectedPerSecond * O_TICKS_PER_SECOND * speed;
 
 
                 // Determine the amount of exp
-                float exp = Props.baseExpPerSecond * O_TICKS_PER_SECOND * GetExpMultiplierForCorpse(corpse, currentDissectedPart);
+                float exp = Props.baseExpPerSecond * O_TICKS_PER_SECOND * GetExpMultiplierForCorpse(corpse, currentDissectedPart) * speed;
                 dissector.skills.GetSkill(dissector.CurJob.RecipeDef.workSkill).Learn(exp, false);
             }
 #if DEBUG
@@ -108,6 +113,11 @@ namespace HMDissection
         {
             float efficiency = dissector.GetStatValue(StatDefOf.MedicalSurgerySuccessChance, false);
             var products = DissectionProducts(dissector, corpse.InnerPawn, efficiency, efficiency * 0.333f).ToList();
+            Log.Message("Got following products: ");
+            for(int i = 0; i < products.Count; ++i)
+            {
+                Log.Message(i + " - " + products[i] + "("+products[i].def.defName+")");
+            }
             if (products.Count > 1)
             {
                 for (int i = 0; i < products.Count; i++)
@@ -132,13 +142,19 @@ namespace HMDissection
                 if (StoreUtility.TryFindBestBetterStoreCellFor(products[0], dissector, dissector.Map, StoragePriority.Unstored, dissector.Faction, out c, true))
                 {
                     dissector.carryTracker.TryStartCarry(products[0]);
-                    dissector.jobs.curJob.targetB = c;
-                    dissector.jobs.curJob.targetA = products[0];
-                    dissector.jobs.curJob.count = 99999;
-                    return;
+                    dissector.CurJob.targetB = c;
+                    dissector.CurJob.targetA = products[0];
+                    dissector.CurJob.count = 99999;
+                    //dissector.Reserve(products[0], dissector.CurJob, 1, products[0].stackCount, null);
+                    //Log.Message("Reserved product");
+                    //dissector.Reserve(c, dissector.CurJob, 1, -1, null);
+                    //Log.Message("Reserved cell");
+                    //dissector.CurJob.SetTarget(TargetIndex.B, c);
+                    //dissector.CurJob.SetTarget(TargetIndex.A, products[0]);
+                    //dissector.CurJob.count = 99999;
+                    //dissector.CurJob.haulMode = HaulMode.ToCellStorage;
                 }
             }
-            return;
         }
 
         private static void DestroyPart(Pawn dissector, Corpse corpse, BodyPartRecord part)
@@ -309,10 +325,6 @@ namespace HMDissection
                     meat.stackCount = meatCount;
                     yield return meat;
                 }
-            }
-            foreach (Thing t in corpse.ButcherProducts(dissector, meatEfficiency))
-            {
-                yield return t;
             }
             if (corpse.RaceProps.leatherDef != null)
             {

@@ -22,6 +22,10 @@
                 <count>1</count>
             </li>
         </ingredients>
+		<products>
+		  <!-- anything in here, will be overriden by harmony patch! Just needed for the toil -->
+		  <Kibble>50</Kibble>
+		</products>
         <fixedIngredientFilter>
             <categories>
                 <li>Corpses</li>
