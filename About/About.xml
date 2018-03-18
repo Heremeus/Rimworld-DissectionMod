@@ -3,11 +3,12 @@
 	<name>Medical Dissection</name>
 	<author>Heremeus</author>
 	<targetVersion>0.18.0</targetVersion>
-	<description>v1.1.2
-Adds a dissection table to the game.
+	<description>Adds a dissection table to the game.
 
 Human corpses can be dissected at the table to improve the medical knowledge of your doctors.
 
 Available languages: English, German (in progress)
+
+(v1.1.2)
 	</description>
 </ModMetaData>
