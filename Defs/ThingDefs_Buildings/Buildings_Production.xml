@@ -60,10 +60,10 @@
 			<!-- Component for handling the dissection -->
 			<li Class="HMDissection.CompProperties_DissectionHandler">
 				<compClass>HMDissection.CompDissectionHandler</compClass>
-				<!-- A human body offers 4.5 nutrition, dissecting that in 1.5 ingame hourse gives this value per second -->
-				<nutritionDissectedPerSecond>0.0714285714</nutritionDissectedPerSecond>
-				<!-- dissecting for 1.5 hours will yield about 1500 exp in total -->
-				<baseExpPerSecond>24</baseExpPerSecond>
+				<!-- A human body offers 4.5 nutrition, dissecting that in 1.5 ingame hourse gives this value per second>
+				<nutritionDissectedPerSecond>0.0714285714</nutritionDissectedPerSecond-->
+				<!-- dissecting for 1.5 hours will yield about 1500 exp in total>
+				<baseExpPerSecond>24</baseExpPerSecond-->
 				<!-- 30% to 52.5% bonus for 1 to 3 diseases on the body -->
 				<baseDiseasesBonusPercent>0.3</baseDiseasesBonusPercent>
 				<diseaseStackLimit>3</diseaseStackLimit>
@@ -75,9 +75,12 @@
 			</li>
 		</comps>
 		<designationHotKey>Misc3</designationHotKey>
-			<placeWorkers>
-				<li>PlaceWorker_ShowFacilitiesConnections</li>
-			</placeWorkers>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+		<researchPrerequisites>
+		  <li>DissectionResearchProj</li>
+		</researchPrerequisites>
 	</ThingDef>
 	
 	

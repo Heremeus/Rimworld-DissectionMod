@@ -12,6 +12,8 @@ namespace HMDissection
     public class CompDissectionHandler : ThingComp
     {
         private const float O_TICKS_PER_SECOND = 1f/60f;
+        private const float DEFAULT_NUTR_PER_CORPS = 4.5f;
+        private const float RECIPE_WORK_AMOUNT = 7500;
 
         private BodyPartRecord currentDissectedPart;
         private float leftoverNutritionToDissect = 0f;
@@ -46,6 +48,7 @@ namespace HMDissection
             if (dissector != null && corpse != null && !corpse.Destroyed)
             {
                 var speed = parent.GetStatValue(StatDefOf.WorkTableWorkSpeedFactor, true);
+                JobDriver_DoBill jobDriver_DoBill = (JobDriver_DoBill)dissector.jobs.curDriver;
                 if (leftoverNutritionToDissect <= 0f)
                 {
                     // Destroy the part that was dissected
@@ -53,11 +56,7 @@ namespace HMDissection
                     {
                         if(currentDissectedPart.def.defName.ToLower().Contains("torso"))
                         {
-                            // Destroyed last part, spawn products
-                            //SpawnDissectionProducts(dissector, corpse);
-
-                            // Make DoRecipeWork not fail
-                            JobDriver_DoBill jobDriver_DoBill = (JobDriver_DoBill)dissector.jobs.curDriver;
+                            // Prevent DoRecipeWork from failing
                             jobDriver_DoBill.ReadyForNextToil();
 #if DEBUG
                             tickLog += ("Destroying torso, spawning products now.") + Environment.NewLine;
@@ -101,70 +100,31 @@ namespace HMDissection
                     tickLog += ("Got " + leftoverNutritionToDissect + " nutrition from corpse for " + currentDissectedPart) + Environment.NewLine;
 #endif
                 }
-                leftoverNutritionToDissect -= Props.nutritionDissectedPerSecond * O_TICKS_PER_SECOND * speed;
+                float dissectedPerSecond = DEFAULT_NUTR_PER_CORPS / Dissection.Singleton.SecondsPerCorpse;
+                leftoverNutritionToDissect -= dissectedPerSecond * O_TICKS_PER_SECOND * speed;
 
 
                 // Determine the amount of exp
-                float exp = Props.baseExpPerSecond * O_TICKS_PER_SECOND * GetExpMultiplierForCorpse(corpse, currentDissectedPart) * speed;
-                dissector.skills.GetSkill(dissector.CurJob.RecipeDef.workSkill).Learn(exp, false);
+                float expPerSecond = Dissection.Singleton.ExpPerCorpse / Dissection.Singleton.SecondsPerCorpse;
+                float exp = expPerSecond * O_TICKS_PER_SECOND * GetExpMultiplierForCorpse(corpse, currentDissectedPart) * speed;
+                dissector.skills.GetSkill(dissector.CurJob.RecipeDef.workSkill).Learn(exp, Dissection.Singleton.IgnoreDailyLimit);
+
+                float bodyPartsLeftPercent;
+                if (PawnOrCorpseStatUtility.TryGetPawnOrCorpseStat(StatRequest.For(corpse), (Pawn x) => x.health.hediffSet.GetCoverageOfNotMissingNaturalParts(x.RaceProps.body.corePart), (ThingDef x) => 1f, out bodyPartsLeftPercent))
+                {
+                    float workLeftPercent = bodyPartsLeftPercent - (currentDissectedPart.coverageAbs - currentDissectedPart.coverageAbs * (leftoverNutritionToDissect / FoodUtility.GetBodyPartNutrition(corpse.InnerPawn, currentDissectedPart)));
+                    jobDriver_DoBill.workLeft = Mathf.Max(10f, workLeftPercent * RECIPE_WORK_AMOUNT);
+                }
+                else
+                {
+                    Log.Error("Could not retrieve missing parts %");
+                }
             }
-#if DEBUG
+
             if(!string.IsNullOrEmpty(tickLog))
             {
                 Log.Message(tickLog);
                 tickLog = "";
-            }
-#endif
-        }
-
-        // Todo: Instead of spawning meat and leather, spawn custom item that can be butchered for meat and leather
-        private void SpawnDissectionProducts(Pawn dissector, Corpse corpse)
-        {
-            float efficiency = dissector.GetStatValue(StatDefOf.MedicalSurgerySuccessChance, false);
-            var products = DissectionProducts(dissector, corpse.InnerPawn, efficiency, efficiency * 0.333f).ToList();
-#if DEBUG
-            Log.Message("Got following products: ");
-            for(int i = 0; i < products.Count; ++i)
-            {
-                Log.Message(i + " - " + products[i] + "("+products[i].def.defName+")");
-            }
-#endif
-            if (products.Count > 1)
-            {
-                for (int i = 0; i < products.Count; i++)
-                {
-                    if (!GenPlace.TryPlaceThing(products[i], dissector.Position, dissector.Map, ThingPlaceMode.Near, null))
-                    {
-                        Log.Error(string.Concat(new object[]
-                        {
-                        dissector,
-                        " could not drop recipe product ",
-                        products[i],
-                        " near ",
-                        dissector.Position
-                        }));
-                    }
-                }
-            }
-            if (products.Count > 0)
-            {
-                products[0].SetPositionDirect(dissector.Position);
-                IntVec3 c;
-                if (StoreUtility.TryFindBestBetterStoreCellFor(products[0], dissector, dissector.Map, StoragePriority.Unstored, dissector.Faction, out c, true))
-                {
-                    dissector.carryTracker.TryStartCarry(products[0]);
-                    dissector.CurJob.targetB = c;
-                    dissector.CurJob.targetA = products[0];
-                    dissector.CurJob.count = 99999;
-                    //dissector.Reserve(products[0], dissector.CurJob, 1, products[0].stackCount, null);
-                    //Log.Message("Reserved product");
-                    //dissector.Reserve(c, dissector.CurJob, 1, -1, null);
-                    //Log.Message("Reserved cell");
-                    //dissector.CurJob.SetTarget(TargetIndex.B, c);
-                    //dissector.CurJob.SetTarget(TargetIndex.A, products[0]);
-                    //dissector.CurJob.count = 99999;
-                    //dissector.CurJob.haulMode = HaulMode.ToCellStorage;
-                }
             }
         }
 
@@ -307,59 +267,6 @@ namespace HMDissection
             tickLog += ("EXP Multiplier for corpse: " + multiplier) + Environment.NewLine;
 #endif
             return Mathf.Max(multiplier, 0.1f);
-        }
-
-        public IEnumerable<Thing> DissectionProducts(Pawn dissector, Pawn corpse, float meatEfficiency, float leatherEfficiency)
-        {
-            if (corpse.RaceProps.meatDef != null)
-            {
-                int meatCount = GenMath.RoundRandom(corpse.GetStatValue(StatDefOf.MeatAmount, true) * meatEfficiency);
-                if (meatCount > 0)
-                {
-                    Thing meat = ThingMaker.MakeThing(corpse.RaceProps.meatDef, null);
-                    meat.stackCount = meatCount;
-                    yield return meat;
-                }
-            }
-            if (corpse.RaceProps.leatherDef != null)
-            {
-                int leatherCount = GenMath.RoundRandom(corpse.GetStatValue(StatDefOf.LeatherAmount, true) * leatherEfficiency);
-                if (leatherCount > 0)
-                {
-                    Thing leather = ThingMaker.MakeThing(corpse.RaceProps.leatherDef, null);
-                    leather.stackCount = leatherCount;
-                    yield return leather;
-                }
-            }
-            //if (!corpse.RaceProps.Humanlike)
-            //{
-            //    PawnKindLifeStage lifeStage = corpse.ageTracker.CurKindLifeStage;
-            //    if (lifeStage.butcherBodyPart != null && (corpse.gender == Gender.None || (corpse.gender == Gender.Male && lifeStage.butcherBodyPart.allowMale) || (corpse.gender == Gender.Female && lifeStage.butcherBodyPart.allowFemale)))
-            //    {
-            //        for (;;)
-            //        {
-            //            BodyPartRecord record = (from x in corpse.health.hediffSet.GetNotMissingParts(BodyPartHeight.Undefined, BodyPartDepth.Undefined)
-            //                                     where x.IsInGroup(lifeStage.butcherBodyPart.bodyPartGroup)
-            //                                     select x).FirstOrDefault<BodyPartRecord>();
-            //            if (record == null)
-            //            {
-            //                break;
-            //            }
-            //            corpse.health.AddHediff(HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, corpse, record), null, null);
-            //            Thing thing;
-            //            if (lifeStage.butcherBodyPart.thing != null)
-            //            {
-            //                thing = ThingMaker.MakeThing(lifeStage.butcherBodyPart.thing, null);
-            //            }
-            //            else
-            //            {
-            //                thing = ThingMaker.MakeThing(record.def.spawnThingOnRemoved, null);
-            //            }
-            //            yield return thing;
-            //        }
-            //    }
-            //}
-            yield break;
         }
     }
 }

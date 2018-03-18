@@ -4,9 +4,9 @@ namespace HMDissection
 {
     public class CompProperties_DissectionHandler : CompProperties
     {
-        public float nutritionDissectedPerSecond = 0.01f;
+        //public float nutritionDissectedPerSecond = 0.01f;
 
-        public float baseExpPerSecond = 0.0f;
+        //public float baseExpPerSecond = 0.0f;
 
         public float baseDiseasesBonusPercent = 0.25f;
         public int diseaseStackLimit = 3;

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	<Dissection_MessageDissectedByMedic>{1} has completely dissected {0}.</Dissection_MessageDissectedByMedic>
+	<Dissection_ExpSetting_title>Exp per corpse</Dissection_ExpSetting_title>
+	<Dissection_ExpSetting_desc>The amount of exp a default corpse yields (before calculating the individual corpse exp).</Dissection_ExpSetting_desc>
+	<Dissection_DurationSetting_title>Dissection duration (hours)</Dissection_DurationSetting_title>
+	<Dissection_DurationSetting_desc>The time in ingame hours to dissect a single corpse.</Dissection_DurationSetting_desc>
+	<Dissection_DailyLimitSetting_title>Ignore daily learning limit</Dissection_DailyLimitSetting_title>
+	<Dissection_DailyLimitSetting_desc>If activated, dissection will not count towards the daily learning threshold (4000) and the experience will not be reduced to 20% after this limit is reached.</Dissection_DailyLimitSetting_desc>
 </LanguageData>

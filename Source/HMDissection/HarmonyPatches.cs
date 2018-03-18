@@ -23,11 +23,11 @@ namespace HMDissection
             // patch the targetmethod, by calling prefixmethod before it runs, with no postfixmethod (i.e. null)
             harmony.Patch(targetmethod, prefixmethod, null);
 
-            // find the EndCurrentJob method of the class Verse.AI.Pawn_JobTracker
+            // find the MakeRecipeProducts method of the class GenRecipe
             targetmethod = AccessTools.Method(typeof(GenRecipe), "MakeRecipeProducts");
             // find the static method to call after (i.e. postfix) the targetmethod
             HarmonyMethod postfixethod = new HarmonyMethod(typeof(HMDissection.HarmonyPatches).GetMethod("MakeRecipeProducts_PostFix"));
-            // patch the targetmethod, by calling prefixmethod before it runs, with no postfixmethod (i.e. null)
+            // patch the targetmethod, by calling postfixmethod before it runs, with no prefixmethod (i.e. null)
             harmony.Patch(targetmethod, null, postfixethod);
 
         }
