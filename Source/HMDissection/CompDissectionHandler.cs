@@ -74,6 +74,15 @@ namespace HMDissection
                     // Check if the last part was destroyed
                     if (corpse.Destroyed)
                     {
+                        if (dissector.needs.mood != null)
+                        {
+                            List<ThoughtDef> list = ThoughtsFromDissection(dissector, corpse, corpse.def);
+                            for (int j = 0; j < list.Count; j++)
+                            {
+                                dissector.needs.mood.thoughts.memories.TryGainMemory(list[j], null);
+                            }
+                        }
+
                         // TODO different tales depending on who was dissected (colonist vs stranger)
                         if (dissector.IsColonist)
                         {
@@ -207,22 +216,6 @@ namespace HMDissection
                 Log.Error(dissector + " dissected destroyed thing " + corpse);
                 part = null;
                 return 0f;
-            }
-            if (dissector.needs.mood != null)
-            {
-                List<ThoughtDef> list = ThoughtsFromDissection(dissector, corpse, corpse.def);
-                for (int j = 0; j < list.Count; j++)
-                {
-                    dissector.needs.mood.thoughts.memories.TryGainMemory(list[j], null);
-                }
-            }
-            if (dissector.IsColonist)
-            {
-                // TODO: custom tale
-                //TaleRecorder.RecordTale(TaleDefOf.AteRawHumanlikeMeat, new object[]
-                //{
-                //    dissector
-                //});
             }
             float result;
             DissectedCalculateAmounts(corpse, dissector, out result, out part);

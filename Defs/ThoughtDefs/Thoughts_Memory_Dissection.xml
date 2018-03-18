@@ -2,9 +2,9 @@
 <Defs>
 	<ThoughtDef>
 		<defName>DissectionNoPassion</defName>
-		<durationDays>2.0</durationDays>
-		<stackLimit>1</stackLimit>
-		<stackedEffectMultiplier>1</stackedEffectMultiplier>
+		<durationDays>1.5</durationDays>
+		<stackLimit>2</stackLimit>
+		<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
 		<nullifyingTraits>
 			<li>Psychopath</li>
 			<li>Bloodlust</li>
@@ -14,13 +14,13 @@
 			<li>
 				<label>I desecrated a corpse</label>
 				<description>I dismembered a human corpse - gross.</description>
-				<baseMoodEffect>-5</baseMoodEffect>
+				<baseMoodEffect>-6</baseMoodEffect>
 			</li>
 		</stages>
 	</ThoughtDef>
 	<ThoughtDef>
 		<defName>DissectionMinorPassion</defName>
-		<durationDays>1.5</durationDays>
+		<durationDays>1</durationDays>
 		<stackLimit>1</stackLimit>
 		<stackedEffectMultiplier>1</stackedEffectMultiplier>
 		<stages>
@@ -33,8 +33,8 @@
 	</ThoughtDef>
 	<ThoughtDef>
 		<defName>DissectionMajorPassion</defName>
-		<durationDays>5.0</durationDays>
-		<stackLimit>1</stackLimit>
+		<durationDays>3.0</durationDays>
+		<stackLimit>3</stackLimit>
 		<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
 		<stages>
 			<li>
