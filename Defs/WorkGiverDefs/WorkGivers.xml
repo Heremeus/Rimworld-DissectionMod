@@ -5,7 +5,7 @@
         <label>dissect human corpse</label>
         <giverClass>WorkGiver_DoBill</giverClass>
         <workType>Doctor</workType>
-        <priorityInType>99</priorityInType>
+        <priorityInType>2</priorityInType>
         <fixedBillGiverDefs>
             <li>TableDissection</li>
         </fixedBillGiverDefs>
