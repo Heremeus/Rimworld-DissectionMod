@@ -112,7 +112,7 @@ namespace HMDissection
                 float bodyPartsLeftPercent;
                 if (PawnOrCorpseStatUtility.TryGetPawnOrCorpseStat(StatRequest.For(corpse), (Pawn x) => x.health.hediffSet.GetCoverageOfNotMissingNaturalParts(x.RaceProps.body.corePart), (ThingDef x) => 1f, out bodyPartsLeftPercent))
                 {
-                    float workLeftPercent = bodyPartsLeftPercent - (currentDissectedPart.coverageAbs - currentDissectedPart.coverageAbs * (leftoverNutritionToDissect / FoodUtility.GetBodyPartNutrition(corpse.InnerPawn, currentDissectedPart)));
+                    float workLeftPercent = bodyPartsLeftPercent - (currentDissectedPart.coverageAbs - currentDissectedPart.coverageAbs * (leftoverNutritionToDissect / FoodUtility.GetBodyPartNutrition(corpse, currentDissectedPart)));
                     jobDriver_DoBill.workLeft = Mathf.Max(10f, workLeftPercent * RECIPE_WORK_AMOUNT);
                 }
                 else
@@ -196,7 +196,7 @@ namespace HMDissection
                 }));
                 dissectedPart = corpse.InnerPawn.RaceProps.body.corePart;
             }
-            float bodyPartNutrition = FoodUtility.GetBodyPartNutrition(corpse.InnerPawn, dissectedPart);
+            float bodyPartNutrition = FoodUtility.GetBodyPartNutrition(corpse, dissectedPart);
             nutritionDissected = bodyPartNutrition;
         }
 
@@ -209,17 +209,17 @@ namespace HMDissection
         private BodyPartRecord GetNextBodyPartToDissect(Corpse corpse, Pawn dissector)
         {
             IEnumerable<BodyPartRecord> source = from x in corpse.InnerPawn.health.hediffSet.GetNotMissingParts(BodyPartHeight.Undefined, BodyPartDepth.Undefined)
-                                                 where x.depth == BodyPartDepth.Outside && FoodUtility.GetBodyPartNutrition(corpse.InnerPawn, x) > 0.00001f
+                                                 where x.depth == BodyPartDepth.Outside && FoodUtility.GetBodyPartNutrition(corpse, x) > 0.00001f
                                                  select x;
             if (!source.Any<BodyPartRecord>())
             {
                 return null;
             }
-            BodyPartRecord bodyPart = source.RandomElementByWeight(part => 1f / FoodUtility.GetBodyPartNutrition(corpse.InnerPawn, part));
+            BodyPartRecord bodyPart = source.RandomElementByWeight(part => 1f / FoodUtility.GetBodyPartNutrition(corpse, part));
             var notMissingChildParts = bodyPart.GetDirectChildParts().Where(part => !corpse.InnerPawn.health.hediffSet.PartIsMissing(part));
             while (notMissingChildParts.Any())
             {
-                bodyPart = notMissingChildParts.RandomElementByWeight(part => 1f / FoodUtility.GetBodyPartNutrition(corpse.InnerPawn, part));
+                bodyPart = notMissingChildParts.RandomElementByWeight(part => 1f / FoodUtility.GetBodyPartNutrition(corpse, part));
                 notMissingChildParts = bodyPart.GetDirectChildParts().Where(part => !corpse.InnerPawn.health.hediffSet.PartIsMissing(part));
             }
             return bodyPart;

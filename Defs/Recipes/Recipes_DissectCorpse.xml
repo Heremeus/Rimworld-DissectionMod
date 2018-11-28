@@ -30,17 +30,17 @@
             <categories>
                 <li>Corpses</li>
             </categories>
-            <exceptedCategories>
+            <disallowedCategories>
                 <li>CorpsesMechanoid</li>
                 <li>CorpsesAnimal</li>
-            </exceptedCategories>
+            </disallowedCategories>
             <specialFiltersToDisallow>
                 <li>AllowRotten</li>
             </specialFiltersToDisallow>
         </fixedIngredientFilter>
         <defaultIngredientFilter>
             <thingDefs>
-                <li>Human_Corpse</li>
+                <li>Corpse_Human</li>
             </thingDefs>
             <specialFiltersToAllow>
                 <li>AllowCorpsesColonist</li>
@@ -82,10 +82,10 @@
             <categories>
                 <li>Corpses</li>
             </categories>
-            <exceptedCategories>
-                <li>Human_Corpse</li>
+            <disallowedCategories>
+                <li>CorpsesHumanlike</li>
                 <li>CorpsesMechanoid</li>
-            </exceptedCategories>
+            </disallowedCategories>
             <specialFiltersToDisallow>
                 <li>AllowRotten</li>
             </specialFiltersToDisallow>
