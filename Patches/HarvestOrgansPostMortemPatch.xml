@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--allow dissection at autopsy tables-->
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>Harvest Organs Post Mortem</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <!-- Add dissection recipe to the autopsy table. -->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="TableAutopsy"]/recipes</xpath>
+          <value>
+            <li>DissectHumanRecipe</li>
+          </value>
+        </li>
+        <!-- Add /comps if there are no comps on autopsy table yet. -->
+        <li Class="PatchOperationConditional">
+          <xpath>/Defs/ThingDef[defName="TableAutopsy"]/comps</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="TableAutopsy"]</xpath>
+            <value>
+              <comps>
+              </comps>
+            </value>
+          </nomatch>
+        </li>
+        <!-- Add CompProperties_DissectionHandler to comps on autopsy table. -->
+        <li Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="TableAutopsy"]/comps</xpath>
+            <value>		
+              <li Class="HMDissection.CompProperties_DissectionHandler">
+                <compClass>HMDissection.CompDissectionHandler</compClass>
+                <baseDiseasesBonusPercent>0.3</baseDiseasesBonusPercent>
+                <diseaseStackLimit>3</diseaseStackLimit>
+                <stackedDiseaseMultiplier>0.5</stackedDiseaseMultiplier>
+                <baseDamageMalusPercent>0.18</baseDamageMalusPercent>
+                <damageStackLimit>5</damageStackLimit>
+                <stackedDamageMultiplier>1.0</stackedDamageMultiplier>
+              </li>
+            </value>
+        </li>
+        <!-- Change recipe required research to BasicAutopsy. -->
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/RecipeDef[defName="DissectHumanRecipe"]/researchPrerequisite</xpath>
+          <value>
+              <researchPrerequisite>BasicAutopsy</researchPrerequisite>
+          </value>
+        </li>
+        <!-- Change table required research to BasicAutopsy. -->
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="TableDissection"]/researchPrerequisites</xpath>
+          <value>
+              <researchPrerequisites><li>BasicAutopsy</li></researchPrerequisites>
+          </value>
+        </li>
+        <!-- Remove dissection research project -->
+        <li Class="PatchOperationRemove">
+          <xpath>Defs/ResearchProjectDef[defName="DissectionResearchProj"]</xpath>
+        </li>
+        <!-- Remove dissection research tab -->
+        <li Class="PatchOperationRemove">
+          <xpath>Defs/ResearchTabDef[defName="DissectionResearchTab"]</xpath>
+        </li>
+      </operations>
+    </match>
+	</Operation>
+</Patch>
