@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>[DEV]Medical Dissection</name>
+	<name>Medical Dissection</name>
 	<author>Heremeus</author>
-	<targetVersion>1.0.0</targetVersion>
+	<supportedVersions>
+    <li>1.0</li>
+  </supportedVersions>
 	<description>Adds a dissection table to the game.
 
 Human corpses can be dissected at the table to improve the medical knowledge of your doctors.
 
 Available languages: English, German (in progress)
 
-(v1.2.0)
+(v2.0)
 	</description>
 </ModMetaData>

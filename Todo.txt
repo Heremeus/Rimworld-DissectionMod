@@ -1,18 +1,17 @@
 - Custom tale?
-- Danger of dissection
-  - Actor cuts himself and may even catch an infection?
-  - Add a chance to catch diseases the corpse has if the environment is non sterile
-- Custom inspired (Next dissection in x days will yield bonus exp)
-- Custom exp generation
-  - Depends on the nutrition values of the body parts right now
-  - Probably should use custom calculation as "eyes" are highly interesting for surgery but only yield very low nutrition
-  - Bonus for diseases (more knowledge)
-  - Malus for destroyed body parts (can't dissect them) -> may already be included in nutrition value?
-- Limit the dissection performable on one corpse
-    - Only parts like eyes for example
-    - Would balance the mod
-    - Less exp to gain
-	- Still need to get rid of the corpse afterwards
-	- May be annoying for the player?
+
+- Dissection should not use up the body anymore. Instead remove some parts but leave the body for further usage (butchering, biofuel, etc.)
 
 - Use custom JobDriver inherited from JobDriver_DoBill for these bills (much cleaner solution)
+	- Go to body
+	- Bring it to table
+	- Strip it
+	- Start dissecting
+	- Check regulary if max learning is done or another task came in
+		- If so, bring away the corpse
+		
+- Do not start dissection (unless forced) if learning threshold is over 75%
+
+- Add autopsy room type with related mood buffs/penalties
+- Tweak thoughts / mood buffs
+- Tweak xp/duration (Dissecting for 3 hours should give 4000xp)

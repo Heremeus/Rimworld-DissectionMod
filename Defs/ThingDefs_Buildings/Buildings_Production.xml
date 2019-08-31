@@ -6,7 +6,7 @@
 		<description>A table for dissecting dead creatures in the name of science.</description>
 		<thingClass>Building_WorkTable</thingClass>
 		<graphicData>
-			<texPath>Things/Building/Production/TableButcher</texPath>
+			<texPath>Things/Building/DissectionTable</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3.5,1.5)</drawSize>
 			<damageData>
@@ -16,22 +16,24 @@
 			<cornerBR>Damage/Corner</cornerBR>
 		  </damageData>
 		</graphicData>
+		<castEdgeShadows>true</castEdgeShadows>
+		<staticSunShadowHeight>0.20</staticSunShadowHeight>
 		<costStuffCount>75</costStuffCount>
 		<costList>
-			<Silver>75</Silver>
+			<Steel>50</Steel>
 		</costList>
 		<stuffCategories>
 			<li>Metallic</li>
-			<li>Woody</li>
+			<li>Stony</li>
 		</stuffCategories>
 		<altitudeLayer>Building</altitudeLayer>
 		<fillPercent>0.5</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
-			<WorkToBuild>3250</WorkToBuild>
-			<MaxHitPoints>200</MaxHitPoints>
-			<Flammability>0.8</Flammability>
-			<Cleanliness>2</Cleanliness>
+			<WorkToBuild>2200</WorkToBuild>
+			<MaxHitPoints>180</MaxHitPoints>
+			<Flammability>0.7</Flammability>
+			<Cleanliness>-10</Cleanliness>
 		</statBases>
 		<size>(3,1)</size>
 		<designationCategory>Production</designationCategory>
@@ -50,7 +52,7 @@
 		<building>
 			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
 		</building>
-			<tickerType>Normal</tickerType>
+		<tickerType>Normal</tickerType>
 		<comps>
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
@@ -82,40 +84,4 @@
 		  <li>DissectionResearchProj</li>
 		</researchPrerequisites>
 	</ThingDef>
-	
-	
-<!-- ########## BASES ########## -->
-
-	<ThingDef Name="BenchBase" ParentName="BuildingBase" Abstract="True">
-		<castEdgeShadows>true</castEdgeShadows>
-		<staticSunShadowHeight>0.20</staticSunShadowHeight>
-		<canOverlapZones>false</canOverlapZones>
-		<building>
-			<workSpeedPenaltyOutdoors>true</workSpeedPenaltyOutdoors>
-			<workSpeedPenaltyTemperature>true</workSpeedPenaltyTemperature>
-		</building>
-		<comps>
-			<li>
-				<compClass>CompReportWorkSpeed</compClass>
-			</li>
-		</comps>
-		<placeWorkers>
-			<li>PlaceWorker_ReportWorkSpeedPenalties</li>
-		</placeWorkers>
-	</ThingDef>
-  
-	<ThingDef Name="BuildingBase" Abstract="True">
-		<category>Building</category>
-		<thingClass>Building</thingClass>
-		<selectable>true</selectable>
-		<drawerType>MapMeshAndRealTime</drawerType>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<repairEffect>Repair</repairEffect>
-		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
-		<statBases>
-			<SellPriceFactor>0.70</SellPriceFactor>
-		</statBases>
-	</ThingDef>
-
 </Defs>
