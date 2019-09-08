@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Humans -->
+    <RecipeDef Class="HMDissection.Recipes_DissectHuman">
+        <defName>DissectHumanRecipe</defName>
+        <label>dissect human corpse</label>
+        <description>Dissects a human corpse to improve medical skills.</description>
+        <jobString>Dissecting.</jobString>
+        <workAmount>3750</workAmount>
+        <workSkill>Medicine</workSkill>
+        <effectWorking>Surgery</effectWorking>
+        <soundWorking>Recipe_Surgery</soundWorking>
+        <ingredients>
+            <li>
+                <filter>
+                    <categories>
+                        <li>Corpses</li>
+                    </categories>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <categories>
+                <li>Corpses</li>
+            </categories>
+            <disallowedCategories>
+                <li>CorpsesMechanoid</li>
+                <li>CorpsesAnimal</li>
+            </disallowedCategories>
+            <specialFiltersToDisallow>
+                <li>AllowRotten</li>
+                <li>DissectedFilter</li>
+            </specialFiltersToDisallow>
+        </fixedIngredientFilter>
+        <defaultIngredientFilter>
+            <thingDefs>
+                <li>Corpse_Human</li>
+            </thingDefs>
+            <specialFiltersToAllow>
+                <li>AllowCorpsesColonist</li>
+                <li>AllowCorpsesStranger</li>
+            </specialFiltersToAllow>
+        </defaultIngredientFilter>
+        <researchPrerequisite>DissectionResearchProj</researchPrerequisite>
+    </RecipeDef>
+</Defs>

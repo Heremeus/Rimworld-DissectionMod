@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <WorkGiverDef>
-        <defName>DoBillsMedicalHumanOperationOrgans</defName>
+        <defName>DoBillsDissection</defName>
         <label>dissect human corpse</label>
-        <giverClass>WorkGiver_DoBill</giverClass>
-        <workType>Doctor</workType>
-        <priorityInType>2</priorityInType>
+        <giverClass>HMDissection.WorkGiver_DoDissectionBill</giverClass>
+        <workType>MedicalTraining</workType>
+        <priorityInType>100</priorityInType>
         <fixedBillGiverDefs>
             <li>TableDissection</li>
         </fixedBillGiverDefs>

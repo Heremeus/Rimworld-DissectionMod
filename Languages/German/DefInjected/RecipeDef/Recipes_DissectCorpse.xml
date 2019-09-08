@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-	<!-- Humans -->
-	<DissectHumanRecipe.label>Körper sezieren</DissectHumanRecipe.label>
+	<DissectHumanRecipe.label>Leiche sezieren</DissectHumanRecipe.label>
 	<DissectHumanRecipe.description>Seziere einen menschlichen Körper, um dein medizinisches Wissen zu erweitern.</DissectHumanRecipe.description>
 	<DissectHumanRecipe.jobString>Seziert.</DissectHumanRecipe.jobString>
 </LanguageData>

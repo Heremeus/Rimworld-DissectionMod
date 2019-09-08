@@ -18,11 +18,11 @@ namespace HMDissection
         private SettingHandle<int> expHandle;
         public int ExpPerCorpse => expHandle.Value;
 
-        private SettingHandle<float> timeHandle;
-        public float SecondsPerCorpse => timeHandle.Value * IG_HOURS_TO_REAL_SEONDS;
-
         private SettingHandle<bool> ignoreDailyLimitHandle;
         public bool IgnoreDailyLimit => ignoreDailyLimitHandle.Value;
+
+        private SettingHandle<float> destroyBodyChanceHandle;
+        public float DestroyBodyChance => destroyBodyChanceHandle.Value;
 
         public Dissection() : base()
         {
@@ -35,11 +35,20 @@ namespace HMDissection
 
         public override void DefsLoaded()
         {
-            Log.Message("Medical Dissection loaded");
-            expHandle = Settings.GetHandle<int>("expPerCorpse", "Dissection_ExpSetting_title".Translate(), "Dissection_ExpSetting_desc".Translate(), 1500, Validators.IntRangeValidator(0, 1000000));
+            Log.Message("Medical Dissection v2.0 loaded");
+            expHandle = Settings.GetHandle("expPerCorpse", "Dissection_ExpSetting_title".Translate(), "Dissection_ExpSetting_desc".Translate(), 3000, Validators.IntRangeValidator(0, 1000000));
             expHandle.SpinnerIncrement = 100;
-            timeHandle = Settings.GetHandle<float>("timePerCorpse", "Dissection_DurationSetting_title".Translate(), "Dissection_DurationSetting_desc".Translate(), 2f, Validators.FloatRangeValidator(0f, 1000000f));
-            ignoreDailyLimitHandle = Settings.GetHandle<bool>("ignoreDailyLimit", "Dissection_DailyLimitSetting_title".Translate(), "Dissection_DailyLimitSetting_desc".Translate(), false);
+            ignoreDailyLimitHandle = Settings.GetHandle("ignoreDailyLimit", "Dissection_DailyLimitSetting_title".Translate(), "Dissection_DailyLimitSetting_desc".Translate(), false);
+            destroyBodyChanceHandle = Settings.GetHandle("destroyBodyChance", "Dissection_DestroyBodyChanceSetting_title".Translate(), "Dissection_DestroyBodyChanceSetting_desc".Translate(), 0.70f, PercentSettingIsValid);
+        }
+
+        private static bool PercentSettingIsValid(string value)
+        {
+            if(float.TryParse(value, out float fValue))
+            {
+                return fValue >= 0.0f && fValue <= 1.0f;
+            }
+            return false;
         }
     }
 }

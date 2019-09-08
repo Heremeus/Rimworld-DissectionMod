@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-	<DoBillsMedicalHumanOperationOrgans.label>seziere Leiche</DoBillsMedicalHumanOperationOrgans.label>
-	<DoBillsMedicalHumanOperationOrgans.verb>sezieren</DoBillsMedicalHumanOperationOrgans.verb>
-	<DoBillsMedicalHumanOperationOrgans.gerund>seziert</DoBillsMedicalHumanOperationOrgans.gerund>
+	<DoBillsDissection.label>Leiche sezieren</DoBillsDissection.label>
+	<DoBillsDissection.verb>sezieren</DoBillsDissection.verb>
+	<DoBillsDissection.gerund>seziert</DoBillsDissection.gerund>
 </LanguageData>

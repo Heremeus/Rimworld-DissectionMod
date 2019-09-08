@@ -2,44 +2,30 @@
 <Defs>
 	<ThoughtDef>
 		<defName>DissectionNoPassion</defName>
-		<durationDays>1.5</durationDays>
-		<stackLimit>2</stackLimit>
-		<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+		<durationDays>0.5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stackedEffectMultiplier>1</stackedEffectMultiplier>
 		<nullifyingTraits>
 			<li>Psychopath</li>
 			<li>Bloodlust</li>
-			<!--li>Cannibal></li-->
 		</nullifyingTraits>
 		<stages>
 			<li>
-				<label>I desecrated a corpse</label>
-				<description>I dismembered a human corpse - gross.</description>
+				<label>Desecrated a corpse</label>
+				<description>I dissected a human body - gross.</description>
 				<baseMoodEffect>-6</baseMoodEffect>
 			</li>
 		</stages>
 	</ThoughtDef>
 	<ThoughtDef>
-		<defName>DissectionMinorPassion</defName>
+		<defName>DissectionPassion</defName>
 		<durationDays>1</durationDays>
 		<stackLimit>1</stackLimit>
 		<stackedEffectMultiplier>1</stackedEffectMultiplier>
 		<stages>
 			<li>
-				<label>I dissected a human</label>
-				<description>I dismembered a human corpse but the knowledge helps us to survive.</description>
-				<baseMoodEffect>2</baseMoodEffect>
-			</li>
-		</stages>
-	</ThoughtDef>
-	<ThoughtDef>
-		<defName>DissectionMajorPassion</defName>
-		<durationDays>3.0</durationDays>
-		<stackLimit>3</stackLimit>
-		<stackedEffectMultiplier>0.5</stackedEffectMultiplier>
-		<stages>
-			<li>
-				<label>I learned about anatomy</label>
-				<description>I dissected a corpse and learned about the human anatomy.</description>
+				<label>Dissected a corpse</label>
+				<description>I dissected a human body and the knowledge gained will help us to survive.</description>
 				<baseMoodEffect>6</baseMoodEffect>
 			</li>
 		</stages>

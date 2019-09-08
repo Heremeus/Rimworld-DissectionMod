@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-	<DoBillsMedicalHumanOperationOrgans.label>dissect human corpse</DoBillsMedicalHumanOperationOrgans.label>
-	<DoBillsMedicalHumanOperationOrgans.verb>dissect</DoBillsMedicalHumanOperationOrgans.verb>
-	<DoBillsMedicalHumanOperationOrgans.gerund>dissecting on</DoBillsMedicalHumanOperationOrgans.gerund>
+	<DoBillsDissection.label>dissect human corpse</DoBillsDissection.label>
+	<DoBillsDissection.verb>dissect</DoBillsDissection.verb>
+	<DoBillsDissection.gerund>dissecting on</DoBillsDissection.gerund>
 </LanguageData>

@@ -1,17 +1,2 @@
-- Custom tale?
-
-- Dissection should not use up the body anymore. Instead remove some parts but leave the body for further usage (butchering, biofuel, etc.)
-
-- Use custom JobDriver inherited from JobDriver_DoBill for these bills (much cleaner solution)
-	- Go to body
-	- Bring it to table
-	- Strip it
-	- Start dissecting
-	- Check regulary if max learning is done or another task came in
-		- If so, bring away the corpse
-		
-- Do not start dissection (unless forced) if learning threshold is over 75%
-
 - Add autopsy room type with related mood buffs/penalties
-- Tweak thoughts / mood buffs
-- Tweak xp/duration (Dissecting for 3 hours should give 4000xp)
+- Check compatibility with EPOE

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<MedicalTraining.labelShort>Study Medicine</MedicalTraining.labelShort>
+	<MedicalTraining.pawnLabel>Medicine student</MedicalTraining.pawnLabel>
+	<MedicalTraining.gerundLabel>studying medicine</MedicalTraining.gerundLabel>
+	<MedicalTraining.description>Study medicine by dissecting corpses.\nAdded by the Medical Dissection mod.</MedicalTraining.description>
+	<MedicalTraining.verb>study medicine</MedicalTraining.verb>
+</LanguageData>

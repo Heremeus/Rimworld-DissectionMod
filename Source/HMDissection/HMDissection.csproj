@@ -36,15 +36,15 @@
       <HintPath>..\..\Assemblies\$HugsLibChecker.dll</HintPath>
     </Reference>
     <Reference Include="0Harmony">
-      <HintPath>..\..\..\HugsLib\Assemblies\0Harmony.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\Users\armin.willer\Documents\RimworldLibs\0Harmony.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="HugsLib">
-      <HintPath>..\..\..\HugsLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Users\Armin\Documents\RimworldAssemblies\HugsLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -59,14 +59,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompDissectionHandler.cs" />
-    <Compile Include="CompProperties_DissectionHandler.cs" />
     <Compile Include="Dissection.cs" />
     <Compile Include="DissectionDefOf.cs" />
     <Compile Include="DissectionUtility.cs" />
+    <Compile Include="Filters\DissectedFilter.cs" />
     <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="JobDriver_DoDissectionBill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipes_DissectHuman.cs" />
+    <Compile Include="Toils_Dissection.cs" />
+    <Compile Include="WorkGiver_DoDissectionBill.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

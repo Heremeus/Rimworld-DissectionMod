@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-	<!-- Humans -->
 	<DissectHumanRecipe.label>dissect human corpse</DissectHumanRecipe.label>
 	<DissectHumanRecipe.description>Dissects a human corpse to improve medical skills.</DissectHumanRecipe.description>
 	<DissectHumanRecipe.jobString>Dissecting.</DissectHumanRecipe.jobString>
