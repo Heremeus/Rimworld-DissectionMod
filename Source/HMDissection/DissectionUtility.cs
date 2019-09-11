@@ -22,10 +22,5 @@ namespace HMDissection
             DissectionDefOf.Lung,
             BodyPartDefOf.Stomach
         };
-
-        public static bool IsDisease(this Hediff hediff)
-        {
-            return hediff.def.makesSickThought;
-        }
     }
 }
