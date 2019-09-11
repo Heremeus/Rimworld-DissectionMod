@@ -10,7 +10,7 @@ Medical Dissection adds a dissection table to the game, allowing your doctors to
 * A corpse can only be dissected once (A "Allow dissected" and "Allow not dissected" filter can help you to set up your storages and butcher bills efficiently)
 * Thoughts and tales
 
-## Things added by the mod
+## Stuff added by the mod
 ### Research
 A new research project "Dissection" unlocks the Dissection Table. Automatically unlocked for crashlanded scenario for your convenience (they surely heard about the idea of cutting open dead people to learn about human anatomy).
 ### Buildings
@@ -48,5 +48,5 @@ It is not safe to remove the mod from an existing save after doing the first dis
 You want to translate the mod into your language? Awesome! Make a copy of the [English language folder](https://github.com/Heremeus/DissectionMod/tree/master/Languages/English) (or any other language you want to use for reference) and go through the xml files inside. When done, upload your translation to a file hoster of your choice and [add an issue on github](https://github.com/Heremeus/DissectionMod/issues) with a link. Alternatively, if you're familiar with github, feel free to fork the project and create a pull request.
 
 # Credits
-Implementation by Heremeus
-Dissection Table texture by /u/Edward_StoneHammer
+* Implementation by Heremeus
+* Dissection Table texture by /u/Edward_StoneHammer
