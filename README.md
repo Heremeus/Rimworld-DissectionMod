@@ -48,5 +48,5 @@ It is not safe to remove the mod from an existing save after doing the first dis
 You want to translate the mod into your language? Awesome! Make a copy of the [English language folder](https://github.com/Heremeus/DissectionMod/tree/master/Languages/English) (or any other language you want to use for reference) and go through the xml files inside. When done, upload your translation to a file hoster of your choice and [add an issue on github](https://github.com/Heremeus/DissectionMod/issues) with a link. Alternatively, if you're familiar with github, feel free to fork the project and create a pull request.
 
 # Credits
-Implementation by Heremeus
-Dissection Table texture by /u/Edward_StoneHammer
+* Implementation by Heremeus
+* Dissection Table texture by /u/Edward_StoneHammer
