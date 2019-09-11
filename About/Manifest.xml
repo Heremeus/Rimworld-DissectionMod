@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest>
+    <identifier>MedicalDissection</identifier>
+    <version>2.0</version>
+    <dependencies>
+        <li>HugsLib</li>
+    </dependencies>
+    <showCrossPromotions>true</showCrossPromotions>
+    <manifestUri>https://raw.githubusercontent.com/Heremeus/DissectionMod/master/About/Manifest.xml</manifestUri>
+    <downloadUri>https://github.com/Heremeus/DissectionMod/releases/latest</downloadUri>
+</Manifest>
