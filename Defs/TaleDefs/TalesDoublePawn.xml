@@ -17,15 +17,15 @@
         <li>tale_noun->[DISSECTOR_nameDef] dissecting [CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef] being dissected by [DISSECTOR_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef]'s dissection</li>
-        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] of [CORPSE_factionName] of [CORPSE_factionName] [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] cutting [CORPSE_nameFull]'s body open [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] holding [CORPSE_nameFull]'s dissected heart [circumstance_group]</li>
         <li>circumstance_phrase->with professional efficiency</li>
         <li>circumstance_phrase->with grief</li>
         <li>circumstance_phrase->with mixed feelings</li>
-        <li>desc_sentence->[DISSECTOR_nameShortDef] is looking at [CORPSE_nameShortDef]'s corpse with grief.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is cut into pieces.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is missing some body parts.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is looking at [CORPSE_nameDef]'s corpse with grief.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is cut into pieces.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is missing some body parts.</li>
         <li>desc_sentence->[DISSECTOR_nameShortDef] is in the middle of a large pool of blood.</li>
       </rulesStrings>
     </rulePack>
@@ -43,18 +43,18 @@
         <li>tale_noun->[DISSECTOR_nameDef] dissecting [CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef] being dissected by [DISSECTOR_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef]'s dissection</li>
-        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] of [CORPSE_factionName] [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] cutting [CORPSE_nameFull]'s body open [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] holding [CORPSE_nameFull]'s dissected heart [circumstance_group]</li>
         <li>circumstance_phrase->after [CORPSE_pronoun] began to rot</li>
         <li>circumstance_phrase->roughly and amateurishly</li>
         <li>circumstance_phrase->with disgust</li>
         <li>circumstance_phrase->with grief</li>
-        <li>desc_sentence->[DISSECTOR_nameShortDef] is looking at [CORPSE_nameShortDef]'s corpse with grief.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is cut into pieces.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is missing some body parts.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is looking at [CORPSE_nameDef]'s corpse with grief.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is cut into pieces.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is missing some body parts.</li>
         <li>desc_sentence->[DISSECTOR_nameShortDef] is in the middle of a large pool of blood.</li>
-        <li>desc_sentence->[DISSECTOR_nameShortDef] is accidentally cutting off [CORPSE_nameShortDef]'s ear.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is accidentally cutting off [CORPSE_nameDef]'s ear.</li>
       </rulesStrings>
     </rulePack>
   </TaleDef>
@@ -72,13 +72,13 @@
         <li>tale_noun->[DISSECTOR_nameDef] dissecting [CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef] being dissected by [DISSECTOR_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef]'s dissection</li>
-        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] of [CORPSE_factionName] [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] cutting [CORPSE_nameFull]'s body open [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] holding [CORPSE_nameFull]'s dissected heart [circumstance_group]</li>
         <li>circumstance_phrase->with professional efficiency</li>
         <li>circumstance_phrase->with obvious pleasure</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is cut into pieces.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is missing some body parts.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is cut into pieces.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is missing some body parts.</li>
         <li>desc_sentence->[DISSECTOR_nameShortDef] is in the middle of a large pool of blood.</li>
       </rulesStrings>
     </rulePack>
@@ -96,16 +96,16 @@
         <li>tale_noun->[DISSECTOR_nameDef] dissecting [CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef] being dissected by [DISSECTOR_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef]'s dissection</li>
-        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] of [CORPSE_factionName] [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] cutting [CORPSE_nameFull]'s body open [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] holding [CORPSE_nameFull]'s dissected heart [circumstance_group]</li>
         <li>circumstance_phrase->after [CORPSE_pronoun] began to rot</li>
         <li>circumstance_phrase->roughly and amateurishly</li>
         <li>circumstance_phrase->with obviously excessive force</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is cut into pieces.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is missing some body parts.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is cut into pieces.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is missing some body parts.</li>
         <li>desc_sentence->[DISSECTOR_nameShortDef] is in the middle of a large pool of blood.</li>
-        <li>desc_sentence->[DISSECTOR_nameShortDef] is accidentally cutting off [CORPSE_nameShortDef]'s ear.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is accidentally cutting off [CORPSE_nameDef]'s ear.</li>
       </rulesStrings>
     </rulePack>
   </TaleDef>
@@ -123,15 +123,15 @@
         <li>tale_noun->[DISSECTOR_nameDef] dissecting [CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef] being dissected by [DISSECTOR_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef]'s dissection</li>
-        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] of [CORPSE_factionName] [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] cutting [CORPSE_nameFull]'s body open [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] holding [CORPSE_nameFull]'s dissected heart [circumstance_group]</li>
         <li>circumstance_phrase->with obviously excessive force</li>
         <li>circumstance_phrase->with obvious pleasure</li>
         <li>circumstance_phrase->with wrath in his eyes</li>
-        <li>desc_sentence->[DISSECTOR_nameShortDef] is looking at [CORPSE_nameShortDef]'s corpse with satisfaction.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is cut into pieces.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is missing some body parts.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is looking at [CORPSE_nameDef]'s corpse with satisfaction.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is cut into pieces.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is missing some body parts.</li>
         <li>desc_sentence->[DISSECTOR_nameShortDef] is in the middle of a large pool of blood.</li>
       </rulesStrings>
     </rulePack>
@@ -149,17 +149,17 @@
         <li>tale_noun->[DISSECTOR_nameDef] dissecting [CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef] being dissected by [DISSECTOR_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef]'s dissection</li>
-        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] of [CORPSE_factionName] [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] cutting [CORPSE_nameFull]'s body open [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] holding [CORPSE_nameFull]'s dissected heart [circumstance_group]</li>
         <li>circumstance_phrase->roughly and amateurishly</li>
         <li>circumstance_phrase->with obviously excessive force</li>
         <li>circumstance_phrase->with wrath in his eyes</li>
-        <li>desc_sentence->[DISSECTOR_nameShortDef] is looking at [CORPSE_nameShortDef]'s corpse with satisfaction.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is cut into pieces.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is missing some body parts.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is looking at [CORPSE_nameDef]'s corpse with satisfaction.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is cut into pieces.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is missing some body parts.</li>
         <li>desc_sentence->[DISSECTOR_nameShortDef] is in the middle of a large pool of blood.</li>
-        <li>desc_sentence->[DISSECTOR_nameShortDef] is cutting off [CORPSE_nameShortDef]'s ear.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is cutting off [CORPSE_nameDef]'s ear.</li>
       </rulesStrings>
     </rulePack>
   </TaleDef>
@@ -174,8 +174,8 @@
     <baseInterest>4.0</baseInterest>
     <rulePack>
       <rulesStrings>
-        <li>tale_noun->the dissection of [corpse_nameShortDef]</li>
-        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] [circumstance_group]</li>
+        <li>tale_noun->the dissection of [CORPSE_nameDef]</li>
+        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] of [CORPSE_factionName] [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] cutting [CORPSE_nameFull]'s body open [circumstance_group]</li>
         <li>image->[DISSECTOR_nameFull] holding [CORPSE_nameFull]'s dissected heart [circumstance_group]</li>
 		<li>circumstance_phrase->after [corpse_pronoun] began to rot</li>
@@ -184,11 +184,11 @@
         <li>circumstance_phrase->with obviously excessive force</li>
         <li>circumstance_phrase->with obvious pleasure</li>
 		<li>circumstance_phrase->while smiling with dominance</li>
-        <li>desc_sentence->[dissector_nameShortDef] is looking at [corpse_nameShortDef]'s corpse with grief.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is cut into pieces.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] is missing some body parts.</li>
+        <li>desc_sentence->[dissector_nameShortDef] is looking at [CORPSE_nameDef]'s corpse with grief.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is cut into pieces.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is missing some body parts.</li>
         <li>desc_sentence->[DISSECTOR_nameShortDef] is in the middle of a large pool of blood.</li>
-        <li>desc_sentence->[DISSECTOR_nameShortDef] is cutting off [CORPSE_nameShortDef]'s ear.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is cutting off [CORPSE_nameDef]'s ear.</li>
       </rulesStrings>
     </rulePack>
   </TaleDef>

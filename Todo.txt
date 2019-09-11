@@ -1,1 +1,2 @@
 - Add autopsy room role
+	- Add ROOM_role & ROOM_impressivenessIndefinite/ROOM_beautyIndefinite/ROOM_cleanlinessIndefinite to tales

@@ -9,15 +9,15 @@
 		<li>tale_noun->[DISSECTOR_nameDef] seziert die sterblichen Überreste von [CORPSE_nameDef]</li>
 		<li>tale_noun->[CORPSE_nameDef] wird von [DISSECTOR_nameDef] seziert</li>
 		<li>tale_noun->[CORPSE_nameDef]s Sezierung</li>
-		<li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull] [circumstance_group] seziert</li>
+		<li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull] von [CORPSE_factionName] [circumstance_group] seziert</li>
 		<li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull]s Körper [circumstance_group] aufschneidet</li>
 		<li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull]s Herz [circumstance_group] hält</li>
 		<li>circumstance_phrase->mit professioneller Effizienz</li>
 		<li>circumstance_phrase->mit Trauer</li>
 		<li>circumstance_phrase->mit gemischten Gefühlen</li>
-		<li>desc_sentence->[DISSECTOR_nameShortDef] blickt voller Trauer auf [CORPSE_nameShortDef]s sterbliche Überreste.</li>
-		<li>desc_sentence->[CORPSE_nameShortDef] ist in Stücke geschnitten.</li>
-		<li>desc_sentence->[CORPSE_nameShortDef] fehlen ein paar Körperteile.</li>
+		<li>desc_sentence->[DISSECTOR_nameShortDef] blickt voller Trauer auf [CORPSE_nameDef]s sterbliche Überreste.</li>
+		<li>desc_sentence->[CORPSE_nameDef] ist in Stücke geschnitten.</li>
+		<li>desc_sentence->[CORPSE_nameDef] fehlen ein paar Körperteile.</li>
 	</DissectedColonistWithPassionTale.rulePack.rulesStrings>
 	
     <DissectedColonistWithoutPassionTale.label>Leiche seziert</DissectedColonistWithoutPassionTale.label>
@@ -25,18 +25,18 @@
 		<li>tale_noun->[DISSECTOR_nameDef] seziert die sterblichen Überreste von [CORPSE_nameDef]</li>
 		<li>tale_noun->[CORPSE_nameDef] wird von [DISSECTOR_nameDef] seziert</li>
 		<li>tale_noun->[CORPSE_nameDef]s Sezierung</li>
-		<li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull] [circumstance_group] seziert</li>
+		<li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull] von [CORPSE_factionName] [circumstance_group] seziert</li>
 		<li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull]s Körper [circumstance_group] aufschneidet</li>
 		<li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull]s Herz [circumstance_group] hält</li>
 		<li>circumstance_phrase->nachdem [CORPSE_pronoun] zu verfaulen anfing</li>
 		<li>circumstance_phrase->grob und amateurhaft</li>
 		<li>circumstance_phrase->angewidert</li>
 		<li>circumstance_phrase->mit Trauer</li>
-		<li>desc_sentence->[DISSECTOR_nameShortDef] blickt voller Trauer auf [CORPSE_nameShortDef]s sterbliche Überreste.</li>
-		<li>desc_sentence->[CORPSE_nameShortDef] ist in Stücke geschnitten.</li>
-		<li>desc_sentence->[CORPSE_nameShortDef] fehlen ein paar Körperteile.</li>
+		<li>desc_sentence->[DISSECTOR_nameShortDef] blickt voller Trauer auf [CORPSE_nameDef]s sterbliche Überreste.</li>
+		<li>desc_sentence->[CORPSE_nameDef] ist in Stücke geschnitten.</li>
+		<li>desc_sentence->[CORPSE_nameDef] fehlen ein paar Körperteile.</li>
 		<li>desc_sentence->[DISSECTOR_nameShortDef] steht mitten in einer großen Blutlache.</li>
-		<li>desc_sentence->[DISSECTOR_nameShortDef] schneidet aus Versehen [CORPSE_nameShortDef]s Ohr ab.</li>
+		<li>desc_sentence->[DISSECTOR_nameShortDef] schneidet aus Versehen [CORPSE_nameDef]s Ohr ab.</li>
     </DissectedColonistWithoutPassionTale.rulePack.rulesStrings>
 	
 	<!-- Stranger tales -->
@@ -50,8 +50,8 @@
         <li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull]s Herz [circumstance_group] hält</li>
         <li>circumstance_phrase->mit professioneller Effizienz</li>
         <li>circumstance_phrase->mit offensichtlicher Freude</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] ist in Stücke geschnitten.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] fehlen ein paar Körperteile.</li>
+        <li>desc_sentence->[CORPSE_nameDef] ist in Stücke geschnitten.</li>
+        <li>desc_sentence->[CORPSE_nameDef] fehlen ein paar Körperteile.</li>
         <li>desc_sentence->[DISSECTOR_nameShortDef] steht in der Mitte einer großen Blutlache.</li>
     </DissectedStrangerWithPassionTale.rulePack.rulesStrings>
 	
@@ -60,16 +60,16 @@
         <li>tale_noun->[DISSECTOR_nameDef] seziert die sterblichen Überreste von [CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef] wird von [DISSECTOR_nameDef] seziert</li>
         <li>tale_noun->[CORPSE_nameDef]s Sezierung</li>
-        <li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull] [circumstance_group] seziert</li>
+        <li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull] von [CORPSE_factionName] [circumstance_group] seziert</li>
         <li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull]s Körper [circumstance_group] aufschneidet</li>
         <li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull]s Herz [circumstance_group] hält</li>
         <li>circumstance_phrase->nachdem [CORPSE_pronoun] zu verfaulen anfing</li>
         <li>circumstance_phrase->grob und amateurhaft</li>
         <li>circumstance_phrase->mit übetriebener Gewalt</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] ist in Stücke geschnitten.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] fehlen ein paar Körperteile.</li>
+        <li>desc_sentence->[CORPSE_nameDef] ist in Stücke geschnitten.</li>
+        <li>desc_sentence->[CORPSE_nameDef] fehlen ein paar Körperteile.</li>
         <li>desc_sentence->[DISSECTOR_nameShortDef] steht in der Mitte einer großen Blutlache.</li>
-        <li>desc_sentence->[DISSECTOR_nameShortDef] schneidet aus Versehen [CORPSE_nameShortDef]s Ohr ab.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] schneidet aus Versehen [CORPSE_nameDef]s Ohr ab.</li>
     </DissectedStrangerWithoutPassionTale.rulePack.rulesStrings>
   
 	<!-- Enemy tales -->
@@ -78,15 +78,15 @@
         <li>tale_noun->[DISSECTOR_nameDef] seziert die sterblichen Überreste von [CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef] wird von [DISSECTOR_nameDef] seziert</li>
         <li>tale_noun->[CORPSE_nameDef]s Sezierung</li>
-        <li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull] [circumstance_group] seziert</li>
+        <li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull] von [CORPSE_factionName] [circumstance_group] seziert</li>
         <li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull]s Körper [circumstance_group] aufschneidet</li>
         <li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull]s Herz [circumstance_group] hält</li>
         <li>circumstance_phrase->mit übetriebener Gewalt</li>
         <li>circumstance_phrase->mit offensichtlicher Freude</li>
         <li>circumstance_phrase->mit Zorn in den Augen</li>
-        <li>desc_sentence->[DISSECTOR_nameShortDef] schaut [CORPSE_nameShortDef]s Leiche zufrieden an..</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] ist in Stücke geschnitten.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] fehlen ein paar Körperteile.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] schaut [CORPSE_nameDef]s Leiche zufrieden an..</li>
+        <li>desc_sentence->[CORPSE_nameDef] ist in Stücke geschnitten.</li>
+        <li>desc_sentence->[CORPSE_nameDef] fehlen ein paar Körperteile.</li>
         <li>desc_sentence->[DISSECTOR_nameShortDef] steht in der Mitte einer großen Blutlache.</li>
     </DissectedEnemyWithPassionTale.rulePack.rulesStrings>
 	
@@ -95,16 +95,16 @@
         <li>tale_noun->[DISSECTOR_nameDef] seziert die sterblichen Überreste von [CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef] wird von [DISSECTOR_nameDef] seziert</li>
         <li>tale_noun->[CORPSE_nameDef]s Sezierung</li>
-        <li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull] [circumstance_group] seziert</li>
+        <li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull] von [CORPSE_factionName] [circumstance_group] seziert</li>
         <li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull]s Körper [circumstance_group] aufschneidet</li>
         <li>image->[DISSECTOR_nameFull], wie [DISSECTOR_pronoun] [CORPSE_nameFull]s Herz [circumstance_group] hält</li>
         <li>circumstance_phrase->grob und amateurhaft</li>
         <li>circumstance_phrase->mit übetriebener Gewalt</li>
         <li>circumstance_phrase->mit Zorn in den Augen</li>
-        <li>desc_sentence->[DISSECTOR_nameShortDef] schaut [CORPSE_nameShortDef]s Leiche zufrieden an..</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] ist in Stücke geschnitten.</li>
-        <li>desc_sentence->[CORPSE_nameShortDef] fehlen ein paar Körperteile.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] schaut [CORPSE_nameDef]s Leiche zufrieden an..</li>
+        <li>desc_sentence->[CORPSE_nameDef] ist in Stücke geschnitten.</li>
+        <li>desc_sentence->[CORPSE_nameDef] fehlen ein paar Körperteile.</li>
         <li>desc_sentence->[DISSECTOR_nameShortDef] steht in der Mitte einer großen Blutlache.</li>
-		<li>desc_sentence->[DISSECTOR_nameShortDef] schneidet [CORPSE_nameShortDef]s Ohr ab.</li>
+		<li>desc_sentence->[DISSECTOR_nameShortDef] schneidet [CORPSE_nameDef]s Ohr ab.</li>
     </DissectedEnemyWithoutPassionTale.rulePack.rulesStrings>
 </LanguageData>
