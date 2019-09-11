@@ -5,6 +5,7 @@ Medical Dissection adds a dissection table to the game, allowing your doctors to
 * Performing dissections allows your doctors to train their medicine skill on humanlike corpses
 * Colonists assigned to the new "Study Medicine" work type will perform dissection bills at a dissection table to train their skill
 * Dissecting a single body takes 1.5 ingame hours and grants 3000xp (adjustable in settings)
+* Colonists will not perform dissections if doing so would exceed the daily learn threshold too much
 * Dissection removes random body parts and organs from the corpse
 * Colonists may accidentally destroy corpses in the dissection process (lower chance with higher medicine skill)
 * A corpse can only be dissected once (A "Allow dissected" and "Allow not dissected" filter can help you to set up your storages and butcher bills efficiently)
