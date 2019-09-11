@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-	<DissectionNoPassion.stages.0.label>Desecrated a corpse</DissectionNoPassion.stages.0.label>
-	<DissectionNoPassion.stages.0.description>I dismembered a human corpse - gross.</DissectionNoPassion.stages.0.description>#
-	<DissectionPassion.stages.0.label>Dissected a corpse</DissectionPassion.stages.0.label>
-	<DissectionPassion.stages.0.description>I dissected a human body and the knowledge gained will help us to survive.</DissectionPassion.stages.0.description>
+	<DissectionNoPassion.stages.0.label>Desecrated corpse</DissectionNoPassion.stages.0.label>
+	<DissectionNoPassion.stages.0.description>I dismembered a dead corpse - gross.</DissectionNoPassion.stages.0.description>
+	<DissectionPassion.stages.0.label>Dissected corpse</DissectionPassion.stages.0.label>
+	<DissectionPassion.stages.0.description>I dissected a dead body and the knowledge gained will help us to survive.</DissectionPassion.stages.0.description>
 </LanguageData>

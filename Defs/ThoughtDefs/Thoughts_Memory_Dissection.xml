@@ -11,21 +11,21 @@
 		</nullifyingTraits>
 		<stages>
 			<li>
-				<label>Desecrated a corpse</label>
-				<description>I dissected a human body - gross.</description>
-				<baseMoodEffect>-6</baseMoodEffect>
+				<label>Desecrated corpse</label>
+				<description>I dissected a dead body - gross.</description>
+				<baseMoodEffect>-4</baseMoodEffect>
 			</li>
 		</stages>
 	</ThoughtDef>
 	<ThoughtDef>
 		<defName>DissectionPassion</defName>
-		<durationDays>1</durationDays>
+		<durationDays>1.5</durationDays>
 		<stackLimit>1</stackLimit>
 		<stackedEffectMultiplier>1</stackedEffectMultiplier>
 		<stages>
 			<li>
-				<label>Dissected a corpse</label>
-				<description>I dissected a human body and the knowledge gained will help us to survive.</description>
+				<label>Dissected corpse</label>
+				<description>I dissected a dead body and the knowledge gained will help us to survive.</description>
 				<baseMoodEffect>6</baseMoodEffect>
 			</li>
 		</stages>
