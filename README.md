@@ -10,7 +10,7 @@ Medical Dissection adds a dissection table to the game, allowing your doctors to
 * A corpse can only be dissected once (A "Allow dissected" and "Allow not dissected" filter can help you to set up your storages and butcher bills efficiently)
 * Thoughts and tales
 
-## Things added by the mod
+## Stuff added by the mod
 ### Research
 A new research project "Dissection" unlocks the Dissection Table. Automatically unlocked for crashlanded scenario for your convenience (they surely heard about the idea of cutting open dead people to learn about human anatomy).
 ### Buildings
