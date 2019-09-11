@@ -44,7 +44,6 @@
 		<surfaceType>Item</surfaceType>
 		<recipes>
 			<li>DissectHumanRecipe</li>
-			<!--li>DissectAnimal</li-->
 		</recipes>
 		<inspectorTabs>
 			<li>ITab_Bills</li>

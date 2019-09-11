@@ -62,15 +62,14 @@ namespace HMDissection
             yield return Toils_General.Wait(60).WithProgressBarToilDelay(TargetIndex.B, false, -0.5f);
             yield return Toils_Dissection.StripCorpse(TargetIndex.B);
 
-            // Copied from JobDriver_DoBill
+            // Do dissection
             yield return doDissectionRecipeWork;
             yield return Toils_Dissection.FinishRecipeAndStartStoringCorpse(TargetIndex.B);
 
             yield return Toils_Reserve.Reserve(TargetIndex.C);
 
-            // Go to storage cell
+            // Go to storage cell and drop corpse
             yield return Toils_Goto.GotoCell(TargetIndex.C, PathEndMode.ClosestTouch);
-            // Drop corpse
             yield return Toils_Dissection.PlaceHauledThingInCell(TargetIndex.C, null, false);
             
             Toil recount = new Toil();

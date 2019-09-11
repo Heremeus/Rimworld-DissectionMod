@@ -2,7 +2,7 @@
 <Defs>
     <WorkGiverDef>
         <defName>DoBillsDissection</defName>
-        <label>dissect human corpse</label>
+        <label>dissect humanlike corpse</label>
         <giverClass>HMDissection.WorkGiver_DoDissectionBill</giverClass>
         <workType>MedicalTraining</workType>
         <priorityInType>100</priorityInType>

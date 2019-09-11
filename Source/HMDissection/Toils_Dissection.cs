@@ -249,7 +249,6 @@ namespace HMDissection
         {
             if (worker.needs.mood != null)
             {
-                // TODO: Thoughts depending on whether the corpse was a colonist, prisoner, enemy or stranger
                 List<ThoughtDef> thoughts = new List<ThoughtDef>();
                 if (worker.skills.GetSkill(SkillDefOf.Medicine).passion == Passion.None && !worker.story.traits.HasTrait(TraitDefOf.Cannibal) && !worker.story.traits.HasTrait(TraitDefOf.Psychopath))
                 {

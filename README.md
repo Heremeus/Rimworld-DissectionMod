@@ -2,7 +2,7 @@
 Medical Dissection adds a dissection table to the game, allowing your doctors to train on human corpses. You can add the mod to an existing save.
 
 # Features
-* Performing dissections allows your doctors to train their medicine skill on humanoid corpses
+* Performing dissections allows your doctors to train their medicine skill on humanlike corpses
 * Colonists assigned to the new "Study Medicine" work type will perform dissection bills at a dissection table to train their skill
 * Dissecting a single body takes 1.5 ingame hours and grants 3000xp (adjustable in settings)
 * Dissection removes random body parts and organs from the corpse
@@ -32,10 +32,10 @@ The mod settings (Escape -> Options -> Mod Settings) allow you to tweak and bala
 There are no known incompatibilities with other mods. Please let me know if you encounter any issues.
 ### Harvest Organs Post Mortem
 The mod contains a patch for Harvest Organs Post Mortem (HOPM). If HOPM is installed, you can add dissection bills on autopsy tables. The required research changes to Basic Autopsy. The dissection table is still available but can only be used for dissections, not for organ harvesting.
-### Alien races (and other non-humanoids)
-The mod currently only allows dissection on humanoid races.
-Mods based on "Humanoid Alien Races 2.0" by erdelf should work.
-[Add an issue](https://github.com/Heremeus/DissectionMod/issues) if you would like to dissect non-humanoid races. Please include the name of the mod adding that race.
+### Alien races
+The mod currently only allows dissection on humanlike races.
+Mods based on "Humanoid Alien Races 2.0" by erdelf are supported.
+[Add an issue](https://github.com/Heremeus/DissectionMod/issues) if you would like to dissect non-humanlike races. Please include the name of the mod adding that race.
 ### Save game compatibility
 The mod can be added to a new or existing save.
 It is not safe to remove the mod from an existing save after doing the first dissection.

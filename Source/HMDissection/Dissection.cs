@@ -10,8 +10,6 @@ namespace HMDissection
 {
     public class Dissection : ModBase
     {
-        private const float IG_HOURS_TO_REAL_SEONDS = 41f; // Converts one ingame hour to 41 real time seconds
-
         public static Dissection Singleton { get; private set; }
         public override string ModIdentifier => "MedicalDissection";
 

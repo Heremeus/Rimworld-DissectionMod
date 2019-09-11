@@ -13,12 +13,20 @@ namespace HMDissection
         public override bool ShouldSkip(Pawn pawn, bool forced = false)
         {
             // Don't train medicine when doing so would exceed full rate learning threshold.
+			// Only applies after gaining a minimum of 1000xp (otherwise pawns that have a high learning multiplier would never dissect).
             if(!Dissection.Singleton.IgnoreDailyLimit && !forced)
             {
-                float xpToday = pawn.skills.GetSkill(SkillDefOf.Medicine).xpSinceMidnight;
+                SkillRecord medicineSkill = pawn.skills.GetSkill(SkillDefOf.Medicine);
+                float xpToday = medicineSkill.xpSinceMidnight;
                 float xpLimit = SkillRecord.MaxFullRateXpPerDay;
-                float xpExpected = pawn.skills.GetSkill(SkillDefOf.Medicine).LearnRateFactor() * Dissection.Singleton.ExpPerCorpse;
-                if (xpToday + xpExpected > xpLimit)
+                float xpExpected = medicineSkill.LearnRateFactor() * Dissection.Singleton.ExpPerCorpse;
+                if (xpToday > 1000 && xpToday + xpExpected > xpLimit)
+                {
+                    return true;
+                }
+                
+                // Do not train medicine when maxed out
+                if (medicineSkill.Level == SkillRecord.MaxLevel && medicineSkill.XpTotalEarned + xpExpected >= medicineSkill.XpRequiredForLevelUp)
                 {
                     return true;
                 }

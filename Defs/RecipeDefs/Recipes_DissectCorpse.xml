@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<!-- Humans -->
-    <RecipeDef Class="HMDissection.Recipes_DissectHuman">
+    <RecipeDef>
         <defName>DissectHumanRecipe</defName>
-        <label>dissect human corpse</label>
-        <description>Dissects a human corpse to improve medical skills.</description>
+        <label>dissect humanlike corpse</label>
+        <description>Dissects a humanlike corpse to improve medical skills.</description>
         <jobString>Dissecting.</jobString>
         <workAmount>3750</workAmount>
         <workSkill>Medicine</workSkill>
@@ -34,9 +34,9 @@
             </specialFiltersToDisallow>
         </fixedIngredientFilter>
         <defaultIngredientFilter>
-            <thingDefs>
-                <li>Corpse_Human</li>
-            </thingDefs>
+            <categories>
+                <li>CorpsesHumanlike</li>
+            </categories>
             <specialFiltersToAllow>
                 <li>AllowCorpsesColonist</li>
                 <li>AllowCorpsesStranger</li>

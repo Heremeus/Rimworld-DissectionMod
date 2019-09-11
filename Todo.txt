@@ -1,2 +1,1 @@
-- Add autopsy room type with related mood buffs/penalties
-- Check compatibility with EPOE
+- Add autopsy room role
