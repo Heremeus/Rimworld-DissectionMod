@@ -23,6 +23,15 @@ namespace HMDissection
             HarmonyMethod postfixmethod = new HarmonyMethod(typeof(WorkGiver_DoDissectionBill).GetMethod("TryStartNewDoBillJob_Postfix"));
             // patch the targetmethod, by calling postfixmethod after it ran, with no prefixmethod (i.e. null)
             harmony.Patch(targetMethod, null, postfixmethod);
+
+            // Patch HasJobOnThing for Harvest Organs Post Morten to stop duplicate work givers
+            if (ModsConfig.ActiveModsInLoadOrder.Any(m => m.Name.Contains("Harvest Organs Post Mortem")))
+            {
+                targetMethod = AccessTools.Method(typeof(WorkGiver_DoBill), "JobOnThing");
+                HarmonyMethod prefixmethod = new HarmonyMethod(typeof(WorkGiver_DoDissectionBill).GetMethod("JobOnThing_Prefix"));
+                postfixmethod = new HarmonyMethod(typeof(WorkGiver_DoDissectionBill).GetMethod("JobOnThing_Postfix"));
+                harmony.Patch(targetMethod, prefixmethod, postfixmethod);
+            }
         }
     }
 }

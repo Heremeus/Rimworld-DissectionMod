@@ -7,4 +7,6 @@
 	<Dissection_DailyLimitSetting_desc>If activated, dissection will not count towards the daily learning limit (4000) and the experience will not be reduced to 20% after this limit is reached.</Dissection_DailyLimitSetting_desc>
 	<Dissection_DestroyBodyChanceSetting_title>Body destroying base chance</Dissection_DestroyBodyChanceSetting_title>
 	<Dissection_DestroyBodyChanceSetting_desc>The base chance that a body is destroyed during the dissection (between 0.0 and 1.0). The actual chance is a lot lower depending on the dissector's medicine skill level. Set to 0 to never destroy a body.</Dissection_DestroyBodyChanceSetting_desc>
+	<Dissection_AlwaysDestroyBodiesSetting_title>Always destroy body</Dissection_AlwaysDestroyBodiesSetting_title>
+	<Dissection_AlwaysDestroyBodiesSetting_desc>Always destroys the body when dissecting, if this option is enabled.</Dissection_AlwaysDestroyBodiesSetting_desc>
 </LanguageData>

@@ -379,10 +379,15 @@ namespace HMDissection
         private static bool RemoveDissectedBodyParts(Pawn actor, Corpse corpse)
         {
             // There is a chance the whole body is destroyed in the process
-            float skillLevelMultiplier = 1.0f - (float)actor.skills.GetSkill(SkillDefOf.Medicine).Level / SkillRecord.MaxLevel;
-            float chance = Dissection.Singleton.DestroyBodyChance * skillLevelMultiplier * skillLevelMultiplier;
-            float rand = Rand.Range(0.0f, 1.0f);
-            if (rand <= chance)
+            bool destroyBody = Dissection.Singleton.AlwaysDetroyBodies;
+            if(!destroyBody)
+            {
+                float skillLevelMultiplier = 1.0f - (float)actor.skills.GetSkill(SkillDefOf.Medicine).Level / SkillRecord.MaxLevel;
+                float chance = Dissection.Singleton.DestroyBodyChance * skillLevelMultiplier * skillLevelMultiplier;
+                float rand = Rand.Range(0.0f, 1.0f);
+                destroyBody = rand <= chance;
+            }
+            if (destroyBody)
             {
                 if (PawnUtility.ShouldSendNotificationAbout(corpse.InnerPawn) && corpse.InnerPawn.RaceProps.Humanlike)
                 {

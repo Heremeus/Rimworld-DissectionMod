@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompatibilityUtility.cs" />
     <Compile Include="Dissection.cs" />
     <Compile Include="DissectionDefOf.cs" />
     <Compile Include="DissectionUtility.cs" />

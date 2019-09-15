@@ -10,25 +10,22 @@ namespace HMDissection
 {
     public class WorkGiver_DoDissectionBill : WorkGiver_DoBill
     {
-        private const int XP_LIMIT_TOLERANCE = 500;
+        private static Dictionary<Thing, List<Bill>> temporarilySuspendedBills = new Dictionary<Thing, List<Bill>>();
 
         public override bool ShouldSkip(Pawn pawn, bool forced = false)
         {
-            
-            // Don't train medicine when doing so would exceed full rate learning threshold.
-			// Only applies after gaining a minimum of 1000xp (otherwise pawns that have a high learning multiplier would never dissect).
-            if(!Dissection.Singleton.IgnoreDailyLimit && !forced)
+            // Don't train medicine after exceeding full rate learning threshold or when maxed.
+            if (!Dissection.Singleton.IgnoreDailyLimit && !forced)
             {
                 SkillRecord medicineSkill = pawn.skills.GetSkill(SkillDefOf.Medicine);
                 float xpToday = medicineSkill.xpSinceMidnight;
                 float xpLimit = SkillRecord.MaxFullRateXpPerDay;
-                float xpExpected = medicineSkill.LearnRateFactor() * Dissection.Singleton.ExpPerCorpse;
-                if (xpToday > 1000 && xpToday + xpExpected > xpLimit + XP_LIMIT_TOLERANCE)
+                if (xpToday >= xpLimit)
                 {
                     return true;
                 }
                 
-                // Do not train medicine when maxed out
+                float xpExpected = medicineSkill.LearnRateFactor() * Dissection.Singleton.ExpPerCorpse;
                 if (medicineSkill.Level == SkillRecord.MaxLevel && medicineSkill.XpTotalEarned + xpExpected >= medicineSkill.XpRequiredForLevelUp)
                 {
                     return true;
@@ -43,6 +40,46 @@ namespace HMDissection
             if (__instance is WorkGiver_DoDissectionBill  && __result.def == JobDefOf.DoBill)
             {
                 __result.def = DissectionDefOf.DoDissectionBill;
+            }
+        }
+
+        public static void JobOnThing_Prefix(WorkGiver_DoBill __instance, Pawn pawn, Thing thing, bool forced)
+        {
+            if(!(__instance is WorkGiver_DoDissectionBill) && thing.def == CompatibilityUtility.AutopsyTableDef)
+            {
+                if (thing is IBillGiver billGiver)
+                {
+                    foreach (Bill bill in billGiver.BillStack.Bills)
+                    {
+                        if (!bill.suspended && bill.recipe == DissectionDefOf.DissectHumanRecipe)
+                        {
+                            if (!temporarilySuspendedBills.ContainsKey(thing))
+                            {
+                                temporarilySuspendedBills.Add(thing, new List<Bill>());
+                            }
+                            temporarilySuspendedBills[thing].Add(bill);
+                            bill.suspended = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void JobOnThing_Postfix(WorkGiver_DoBill __instance, Pawn pawn, Thing thing, bool forced, Job __result)
+        {
+            if (!(__instance is WorkGiver_DoDissectionBill) && thing.def == CompatibilityUtility.AutopsyTableDef && temporarilySuspendedBills.ContainsKey(thing))
+            {
+                if (thing is IBillGiver billGiver)
+                {
+                    foreach (Bill bill in billGiver.BillStack.Bills)
+                    {
+                        if (bill.recipe == DissectionDefOf.DissectHumanRecipe && temporarilySuspendedBills[thing].Contains(bill))
+                        {
+                            bill.suspended = false;
+                        }
+                    }
+                }
+                temporarilySuspendedBills.Remove(thing);
             }
         }
     }

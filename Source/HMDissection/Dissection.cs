@@ -22,6 +22,9 @@ namespace HMDissection
         private SettingHandle<float> destroyBodyChanceHandle;
         public float DestroyBodyChance => destroyBodyChanceHandle.Value;
 
+        private SettingHandle<bool> alwaysDetroyBodiesHandle;
+        public bool AlwaysDetroyBodies => alwaysDetroyBodiesHandle.Value;
+
         public Dissection() : base()
         {
             if(Singleton != null)
@@ -38,6 +41,7 @@ namespace HMDissection
             expHandle.SpinnerIncrement = 100;
             ignoreDailyLimitHandle = Settings.GetHandle("ignoreDailyLimit", "Dissection_DailyLimitSetting_title".Translate(), "Dissection_DailyLimitSetting_desc".Translate(), false);
             destroyBodyChanceHandle = Settings.GetHandle("destroyBodyChance", "Dissection_DestroyBodyChanceSetting_title".Translate(), "Dissection_DestroyBodyChanceSetting_desc".Translate(), 0.70f, PercentSettingIsValid);
+            alwaysDetroyBodiesHandle = Settings.GetHandle("alwaysDestroyBodies", "Dissection_AlwaysDestroyBodiesSetting_title".Translate(), "Dissection_AlwaysDestroyBodiesSetting_desc".Translate(), false);
         }
 
         private static bool PercentSettingIsValid(string value)
