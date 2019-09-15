@@ -1,5 +1,5 @@
 # Medical Dissection
-Medical Dissection adds a dissection table to the game, allowing your doctors to train on human corpses. You can add the mod to an existing save.
+Medical Dissection adds a dissection table to the game, allowing your doctors to train on human corpses. The mod can be added to existing saves but you will need to fix your work priorities afterwards because it adds a new work type.
 
 # Features
 * Performing dissections allows your doctors to train their medicine skill on humanlike corpses
@@ -38,7 +38,7 @@ The mod currently only allows dissection on humanlike races.
 Mods based on "Humanoid Alien Races 2.0" by erdelf are supported.
 [Add an issue](https://github.com/Heremeus/DissectionMod/issues) if you would like to dissect non-humanlike races. Please include the name of the mod adding that race.
 ### Save game compatibility
-The mod can be added to a new or existing save.
+The mod can be added to existing saves but you will need to fix your work priorities afterwards because it adds a new work type.
 It is not safe to remove the mod from an existing save after doing the first dissection.
 
 # Translation
