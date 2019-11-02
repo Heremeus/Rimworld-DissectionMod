@@ -24,14 +24,24 @@ namespace HMDissection
             // patch the targetmethod, by calling postfixmethod after it ran, with no prefixmethod (i.e. null)
             harmony.Patch(targetMethod, null, postfixmethod);
 
+            // Remove dissected hediff on resurrection
+            targetMethod = AccessTools.Method(typeof(Pawn_HealthTracker), "Notify_Resurrected");
+            HarmonyMethod prefixmethod = new HarmonyMethod(typeof(HarmonyPatches).GetMethod("Notify_Resurrected_Prefix"));
+            harmony.Patch(targetMethod, prefixmethod);
+
             // Patch HasJobOnThing for Harvest Organs Post Morten to stop duplicate work givers
             if (ModsConfig.ActiveModsInLoadOrder.Any(m => m.Name.Contains("Harvest Organs Post Mortem")))
             {
                 targetMethod = AccessTools.Method(typeof(WorkGiver_DoBill), "JobOnThing");
-                HarmonyMethod prefixmethod = new HarmonyMethod(typeof(WorkGiver_DoDissectionBill).GetMethod("JobOnThing_Prefix"));
+                prefixmethod = new HarmonyMethod(typeof(WorkGiver_DoDissectionBill).GetMethod("JobOnThing_Prefix"));
                 postfixmethod = new HarmonyMethod(typeof(WorkGiver_DoDissectionBill).GetMethod("JobOnThing_Postfix"));
                 harmony.Patch(targetMethod, prefixmethod, postfixmethod);
             }
+        }
+
+        public static void Notify_Resurrected_Prefix(Pawn_HealthTracker __instance)
+        {
+            __instance.hediffSet.hediffs.RemoveAll((Hediff x) => x.def == DissectionDefOf.DissectedHediff);
         }
     }
 }
