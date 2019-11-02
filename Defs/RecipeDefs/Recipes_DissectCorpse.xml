@@ -38,9 +38,11 @@
                 <li>CorpsesHumanlike</li>
             </categories>
             <specialFiltersToAllow>
-                <li>AllowCorpsesColonist</li>
                 <li>AllowCorpsesStranger</li>
             </specialFiltersToAllow>
+            <specialFiltersToDisallow>
+                <li>AllowCorpsesColonist</li>
+            </specialFiltersToDisallow>
         </defaultIngredientFilter>
         <researchPrerequisite>DissectionResearchProj</researchPrerequisite>
     </RecipeDef>
