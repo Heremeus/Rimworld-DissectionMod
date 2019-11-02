@@ -2,10 +2,6 @@
 <Defs>
 	<!-- To add a research tab, make a new ResearchTabDef here and then set the <tab> field of your research project to match it -->
 	<ResearchTabDef>
-		<defName>Main</defName>
-		<label>Main</label>
-	</ResearchTabDef>
-	<ResearchTabDef>
 		<defName>DissectionResearchTab</defName>
 		<label>Dissection</label>
 	</ResearchTabDef>

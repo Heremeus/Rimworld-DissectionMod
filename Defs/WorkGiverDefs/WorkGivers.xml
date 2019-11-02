@@ -9,8 +9,6 @@
         <fixedBillGiverDefs>
             <li>TableDissection</li>
         </fixedBillGiverDefs>
-        <billGiversAllHumanlikes>true</billGiversAllHumanlikes>
-        <billGiversAllHumanlikesCorpses>true</billGiversAllHumanlikesCorpses>
         <verb>dissect</verb>
         <gerund>dissecting on</gerund>
         <requiredCapacities>
