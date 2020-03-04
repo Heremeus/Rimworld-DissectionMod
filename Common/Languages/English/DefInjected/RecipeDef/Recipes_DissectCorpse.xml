@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<DissectHumanRecipe.label>dissect humanlike corpse</DissectHumanRecipe.label>
+	<DissectHumanRecipe.description>Dissects a humanlike corpse to improve medical skills.</DissectHumanRecipe.description>
+	<DissectHumanRecipe.jobString>Dissecting.</DissectHumanRecipe.jobString>
+</LanguageData>

@@ -34,10 +34,10 @@ namespace HMDissection
 
             return base.ShouldSkip(pawn, forced);
         }
-
-        public static void TryStartNewDoBillJob_Postfix(WorkGiver_DoBill __instance, Pawn pawn, Bill bill, IBillGiver giver, ref Job __result)
+        
+        public static void TryStartNewDoBillJob_Postfix(Pawn pawn, Bill bill, IBillGiver giver, List<ThingCount> chosenIngThings, Job haulOffJob, bool dontCreateJobIfHaulOffRequired, ref Job __result)
         {
-            if (__instance is WorkGiver_DoDissectionBill && __result.def == JobDefOf.DoBill && bill.recipe == DissectionDefOf.DissectHumanRecipe)
+            if (__result.def == JobDefOf.DoBill && bill.recipe == DissectionDefOf.DissectHumanRecipe)
             {
                 __result.def = DissectionDefOf.DoDissectionBill;
             }

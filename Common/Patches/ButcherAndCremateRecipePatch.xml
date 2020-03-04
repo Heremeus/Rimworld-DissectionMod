@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- Disallow dissectable corpses for butchering by default -->
+	<Operation Class="PatchOperationConditional">
+    <xpath>Defs/RecipeDef[defName = "ButcherCorpseFlesh"]/defaultIngredientFilter/specialFiltersToDisallow</xpath>
+    <nomatch Class="PatchOperationAdd">
+        <xpath>Defs/RecipeDef[defName = "ButcherCorpseFlesh"]/defaultIngredientFilter</xpath>
+        <value>
+					<specialFiltersToDisallow>
+						<li>NotDissectedFilter</li>
+					</specialFiltersToDisallow>
+        </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+        <xpath>Defs/RecipeDef[defName = "ButcherCorpseFlesh"]/defaultIngredientFilter/specialFiltersToDisallow</xpath>
+        <value>
+					<li>NotDissectedFilter</li>
+        </value>
+    </match>
+	</Operation>
+	
+	<!-- Disallow dissectable corpses for cremating by default -->
+	<Operation Class="PatchOperationConditional">
+    <xpath>Defs/RecipeDef[defName = "CremateCorpse"]/defaultIngredientFilter/specialFiltersToDisallow</xpath>
+    <nomatch Class="PatchOperationAdd">
+        <xpath>Defs/RecipeDef[defName = "CremateCorpse"]/defaultIngredientFilter</xpath>
+        <value>
+					<specialFiltersToDisallow>
+						<li>NotDissectedFilter</li>
+					</specialFiltersToDisallow>
+        </value>
+    </nomatch>
+    <match Class="PatchOperationAdd">
+        <xpath>Defs/RecipeDef[defName = "CremateCorpse"]/defaultIngredientFilter/specialFiltersToDisallow</xpath>
+        <value>
+					<li>NotDissectedFilter</li>
+        </value>
+    </match>
+	</Operation>
+</Patch>

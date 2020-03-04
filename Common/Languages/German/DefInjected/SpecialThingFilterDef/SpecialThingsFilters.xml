@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<DissectedFilter.label>Erlaube sezierte Leichen</DissectedFilter.label>
+	<DissectedFilter.description>Erlaubt für sezierte tote Körper.</DissectedFilter.description>
+	<NotDissectedFilter.label>Erlaube nicht sezierte Leichen</NotDissectedFilter.label>
+	<NotDissectedFilter.description>Erlaubt für nicht sezierte tote Körper.</NotDissectedFilter.description>
+</LanguageData>

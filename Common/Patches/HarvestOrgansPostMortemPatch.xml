@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--allow dissection at autopsy tables-->
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>Harvest Organs Post Mortem</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <!-- Add dissection recipe to the autopsy table. -->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="TableAutopsy"]/recipes</xpath>
+          <value>
+            <li>DissectHumanRecipe</li>
+          </value>
+        </li>
+        <!-- Add autopsy table to work giver -->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/WorkGiverDef[defName="DoBillsDissection"]/fixedBillGiverDefs</xpath>
+          <value>
+            <li>TableAutopsy</li>
+          </value>
+        </li>
+        <!-- Change recipe required research to BasicAutopsy. -->
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/RecipeDef[defName="DissectHumanRecipe"]/researchPrerequisite</xpath>
+          <value>
+              <researchPrerequisite>BasicAutopsy</researchPrerequisite>
+          </value>
+        </li>
+        <!-- Change table required research to BasicAutopsy. -->
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="TableDissection"]/researchPrerequisites</xpath>
+          <value>
+              <researchPrerequisites><li>BasicAutopsy</li></researchPrerequisites>
+          </value>
+        </li>
+        <!-- Remove dissection research project -->
+        <li Class="PatchOperationRemove">
+          <xpath>Defs/ResearchProjectDef[defName="DissectionResearchProj"]</xpath>
+        </li>
+        <!-- Remove dissection research tab -->
+        <li Class="PatchOperationRemove">
+          <xpath>Defs/ResearchTabDef[defName="DissectionResearchTab"]</xpath>
+        </li>
+      </operations>
+    </match>
+	</Operation>
+</Patch>

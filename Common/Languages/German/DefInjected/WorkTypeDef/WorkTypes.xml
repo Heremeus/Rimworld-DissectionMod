@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<MedicalTraining.labelShort>Sezieren</MedicalTraining.labelShort>
+	<MedicalTraining.pawnLabel>Medizin Student</MedicalTraining.pawnLabel>
+	<MedicalTraining.gerundLabel>sezieren</MedicalTraining.gerundLabel>
+	<MedicalTraining.description>Medizin studieren und Leichen sezieren.\n(Medical Dissection Mod)</MedicalTraining.description>
+	<MedicalTraining.verb>sezieren</MedicalTraining.verb>
+</LanguageData>

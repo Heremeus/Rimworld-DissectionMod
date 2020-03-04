@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef ParentName="DiseaseBase">
+    <defName>DissectedHediff</defName>
+    <label>dissected</label>
+    <description>This body has been dissected.</description>
+    <isBad>false</isBad>
+  </HediffDef>
+</Defs>

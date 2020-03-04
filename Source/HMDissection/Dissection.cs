@@ -34,9 +34,15 @@ namespace HMDissection
             Singleton = this;
         }
 
+        public override void StaticInitialize()
+        {
+            base.StaticInitialize();
+            HarmonyPatches.Patch();
+        }
+
         public override void DefsLoaded()
         {
-            Log.Message("Medical Dissection v2.0 loaded");
+            Log.Message("Medical Dissection v2.3 loaded");
             expHandle = Settings.GetHandle("expPerCorpse", "Dissection_ExpSetting_title".Translate(), "Dissection_ExpSetting_desc".Translate(), 3000, Validators.IntRangeValidator(0, 1000000));
             expHandle.SpinnerIncrement = 100;
             ignoreDailyLimitHandle = Settings.GetHandle("ignoreDailyLimit", "Dissection_DailyLimitSetting_title".Translate(), "Dissection_DailyLimitSetting_desc".Translate(), false);

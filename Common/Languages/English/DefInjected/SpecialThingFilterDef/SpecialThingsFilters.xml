@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<DissectedFilter.label>Allow dissected corpses</DissectedFilter.label>
+	<DissectedFilter.description>Allows bodies that have been dissected.</DissectedFilter.description>
+	<NotDissectedFilter.label>Allow not dissected corpses</NotDissectedFilter.label>
+	<NotDissectedFilter.description>Allows bodies that have not been dissected.</NotDissectedFilter.description>
+</LanguageData>

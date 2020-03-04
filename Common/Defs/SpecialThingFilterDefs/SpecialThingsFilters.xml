@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+  <SpecialThingFilterDef>
+    <defName>DissectedFilter</defName>
+    <label>Allow dissected corpses</label>
+    <description>Allows bodies that have been dissected.</description>
+    <parentCategory>CorpsesHumanlike</parentCategory>
+    <allowedByDefault>true</allowedByDefault>
+    <saveKey>allowDissectionDissected</saveKey>
+    <workerClass>HMDissection.Filters.DissectedFilter</workerClass>
+  </SpecialThingFilterDef>
+  <SpecialThingFilterDef>
+    <defName>NotDissectedFilter</defName>
+    <label>Allow not dissected corpses</label>
+    <description>Allows bodies that have not been dissected.</description>
+    <parentCategory>CorpsesHumanlike</parentCategory>
+    <allowedByDefault>true</allowedByDefault>
+    <saveKey>allowDissectionNotDissected</saveKey>
+    <workerClass>HMDissection.Filters.NotDissectedFilter</workerClass>
+  </SpecialThingFilterDef>
+</Defs>

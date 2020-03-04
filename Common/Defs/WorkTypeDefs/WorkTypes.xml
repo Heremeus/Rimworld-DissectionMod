@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<WorkTypeDef>
+		<defName>MedicalTraining</defName>
+		<labelShort>Dissect</labelShort>
+		<pawnLabel>Medicine student</pawnLabel>
+		<gerundLabel>dissecting</gerundLabel>
+		<description>Train Medicine by dissecting corpses.\n(Medical Dissection mod)</description>
+		<verb>dissect</verb>
+		<naturalPriority>478</naturalPriority>
+		<alwaysStartActive>true</alwaysStartActive>
+    <relevantSkills>
+      <li>Medicine</li>
+		</relevantSkills>
+		<workTags>
+      <li>Caring</li>
+		</workTags>
+	</WorkTypeDef>
+</Defs>

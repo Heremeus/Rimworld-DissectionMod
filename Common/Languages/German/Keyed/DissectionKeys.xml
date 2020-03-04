@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<Dissection_MessageDestroyedByDoctor>{1} hat {0} vollständig seziert.</Dissection_MessageDestroyedByDoctor>
+	<Dissection_ExpSetting_title>Exp pro Leiche</Dissection_ExpSetting_title>
+	<Dissection_ExpSetting_desc>Die Anzahl der Erfahrungspunkte für die Sezierung einer Leiche (vor Abzügen und Boni für Besonderheiten der Leiche).</Dissection_ExpSetting_desc>
+	<Dissection_DailyLimitSetting_title>Lern-Limit ignorieren</Dissection_DailyLimitSetting_title>
+	<Dissection_DailyLimitSetting_desc>Falls aktiviert zählt sezieren nicht für das Tageslimit beim Lernen (4000) und die Erfahrung wird nicht auf 20% reduziert nach erreichen des Limits.</Dissection_DailyLimitSetting_desc>
+	<Dissection_DestroyBodyChanceSetting_title>Basiswahrscheinlichkeit den Körper zu zerstören</Dissection_DestroyBodyChanceSetting_title>
+	<Dissection_DestroyBodyChanceSetting_desc>Die Basiswahrscheinlichkeit dass der Körper beim Sezieren zertstört wird (Zwischen 0.0 und 1.0). Die Tatsächliche Wahrscheinlichkeit ist niedriger und hängt vom Skill level ab. Auf 0 setzen, um niemals Körper zu zerstören.</Dissection_DestroyBodyChanceSetting_desc>
+	<Dissection_AlwaysDestroyBodiesSetting_title>Körper immer zerstören</Dissection_AlwaysDestroyBodiesSetting_title>
+	<Dissection_AlwaysDestroyBodiesSetting_desc>Körper werden beim Sezieren immer zertstört, wenn diese Option aktiviert ist.</Dissection_AlwaysDestroyBodiesSetting_desc>
+</LanguageData>

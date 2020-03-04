@@ -1,9 +1,8 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using UnityEngine;
 using Verse;
 using Verse.AI;
 
@@ -15,7 +14,12 @@ namespace HMDissection
         // this static constructor runs to create a HarmonyInstance and install a patch.
         static HarmonyPatches()
         {
-            HarmonyInstance harmony = HarmonyInstance.Create("rimworld.roxxploxx.unificamagica");
+
+        }
+
+        public static void Patch()
+        {
+            Harmony harmony = new Harmony("heremeus.rimworld.dissection.main");
 
             // find the MakeRecipeProducts method of the class GenRecipe
             MethodInfo targetMethod = AccessTools.Method(typeof(WorkGiver_DoBill), "TryStartNewDoBillJob");

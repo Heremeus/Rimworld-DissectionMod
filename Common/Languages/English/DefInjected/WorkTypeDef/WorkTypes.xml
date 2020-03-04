@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<MedicalTraining.labelShort>Dissect</MedicalTraining.labelShort>
+	<MedicalTraining.pawnLabel>Medicine student</MedicalTraining.pawnLabel>
+	<MedicalTraining.gerundLabel>dissecting</MedicalTraining.gerundLabel>
+	<MedicalTraining.description>Study medicine by dissecting corpses.\n(Medical Dissection mod)</MedicalTraining.description>
+	<MedicalTraining.verb>dissect</MedicalTraining.verb>
+</LanguageData>
