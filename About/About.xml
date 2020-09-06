@@ -5,6 +5,7 @@
 	<supportedVersions>
 		<li>1.0</li>
 		<li>1.1</li>
+		<li>1.2</li>
 	</supportedVersions>
 	<packageId>Heremeus.MedicalDissection</packageId>
 	<description>Medical Dissection adds a dissection table to the game, allowing your doctors to train on human corpses. You can add the mod to an existing save.
@@ -18,7 +19,7 @@ Feature overview
 - A corpse can only be dissected once (A "Allow dissected" and "Allow not dissected" filter can help you to set up your storages and butcher bills efficiently)
 - Custom thoughts and tales
 
-v2.3
+v2.4
 	</description>
 	<modDependencies>
 		<li>
