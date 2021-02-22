@@ -1,5 +1,5 @@
-# Medical Dissection
-Medical Dissection adds a dissection table to the game, allowing your doctors to train on human corpses. The mod can be added to existing saves but you will need to fix your work priorities afterwards because it adds a new work type.
+# Rimworld - Medical Dissection
+Medical Dissection is a mod for the game Rimworld. The mod adds a dissection table to the game, allowing your doctors to train on human corpses. The mod can be added to existing saves but you will need to fix your work priorities afterwards because it adds a new work type.
 
 # Features
 * Performing dissections allows your doctors to train their medicine skill on humanlike corpses
