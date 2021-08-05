@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<DissectionNoPassion.stages.0.label>解剖了尸体</DissectionNoPassion.stages.0.label>
+	<DissectionNoPassion.stages.0.description>我肢解了一具尸体。真恶心！</DissectionNoPassion.stages.0.description>
+	<DissectionPassion.stages.0.label>解剖了尸体</DissectionPassion.stages.0.label>
+	<DissectionPassion.stages.0.description>我解剖了一具尸体，获得的知识将帮助我们更好的生存。</DissectionPassion.stages.0.description>
+</LanguageData>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<Dissection_MessageDestroyedByDoctor>{1}在解剖过程中意外毁坏了{0}的遗体。</Dissection_MessageDestroyedByDoctor>
+	<Dissection_ExpSetting_title>每具尸体可获得的经验</Dissection_ExpSetting_title>
+	<Dissection_ExpSetting_desc>解剖每具尸体默认获得的经验值。</Dissection_ExpSetting_desc>
+	<Dissection_DailyLimitSetting_title>忽略每日经验上限</Dissection_DailyLimitSetting_title>
+	<Dissection_DailyLimitSetting_desc>启用时解剖获得的经验值将不会受到每日经验值上限的限制，到达上限后获得的经验值效率也不会下降。</Dissection_DailyLimitSetting_desc>
+	<Dissection_DestroyBodyChanceSetting_title>尸体破坏概率</Dissection_DestroyBodyChanceSetting_title>
+	<Dissection_DestroyBodyChanceSetting_desc>解剖过程中破坏尸体的概率(0.0到1.0之间)。实际的概率会基于角色的医疗等级而低于设定值。设定为0时将永不破坏尸体。</Dissection_DestroyBodyChanceSetting_desc>
+	<Dissection_AlwaysDestroyBodiesSetting_title>必定破坏尸体</Dissection_AlwaysDestroyBodiesSetting_title>
+	<Dissection_AlwaysDestroyBodiesSetting_desc>该选项被启用时，解剖将必定破坏尸体。</Dissection_AlwaysDestroyBodiesSetting_desc>
+</LanguageData>

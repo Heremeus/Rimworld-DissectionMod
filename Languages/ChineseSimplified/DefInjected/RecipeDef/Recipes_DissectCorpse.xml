@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<DissectHumanRecipe.label>解剖尸体</DissectHumanRecipe.label>
+	<DissectHumanRecipe.description>解剖一具人形尸体以提升医疗技能。</DissectHumanRecipe.description>
+	<DissectHumanRecipe.jobString>手术中。</DissectHumanRecipe.jobString>
+</LanguageData>
