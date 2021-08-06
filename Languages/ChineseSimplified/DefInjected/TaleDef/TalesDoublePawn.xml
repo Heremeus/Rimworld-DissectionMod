@@ -25,11 +25,11 @@
         <li>tale_noun->[DISSECTOR_nameDef]正在解剖[CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef]正在被[DISSECTOR_nameDef]解剖</li>
         <li>tale_noun->[CORPSE_nameDef]的解剖手术</li>
-        <li>image->[DISSECTOR_nameFull]正在解剖来自[CORPSE_factionName]的[CORPSE_nameFull] [circumstance_group]</li>
-        <li>image->[DISSECTOR_nameFull]正在切开[CORPSE_nameFull]的身体 [circumstance_group]</li>
-        <li>image->[DISSECTOR_nameFull]正捧着[CORPSE_nameFull]被剖开的心脏 [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull][circumstance_group]解剖来自[CORPSE_factionName]的[CORPSE_nameFull]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]切开[CORPSE_nameFull]的身体</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]捧着[CORPSE_nameFull]被剖开的心脏</li>
         <li>circumstance_phrase->以专业的效率</li>
-        <li>circumstance_phrase->怀着悲痛</li>
+        <li>circumstance_phrase->怀着悲痛地</li>
         <li>circumstance_phrase->百感交集地</li>
         <li>desc_sentence->[DISSECTOR_nameShortDef]正悲痛地看着[CORPSE_nameDef]的遗体。</li>
         <li>desc_sentence->[CORPSE_nameDef]正在被解剖。</li>
@@ -60,13 +60,13 @@
 		<li>tale_noun->[DISSECTOR_nameDef]正在解剖[CORPSE_nameDef]</li>
 		<li>tale_noun->[CORPSE_nameDef]正在被[DISSECTOR_nameDef]解剖</li>
 		<li>tale_noun->[CORPSE_nameDef]的解剖手术</li>
-		<li>image->[DISSECTOR_nameFull]正在解剖来自[CORPSE_factionName]的[CORPSE_nameFull] [circumstance_group]</li>
-		<li>image->[DISSECTOR_nameFull]正在切开[CORPSE_nameFull]的身体 [circumstance_group]</li>
-		<li>image->[DISSECTOR_nameFull]正捧着[CORPSE_nameFull]被剖开的心脏 [circumstance_group]</li>
+		<li>image->[DISSECTOR_nameFull]正[circumstance_group]解剖来自[CORPSE_factionName]的[CORPSE_nameFull]</li>
+		<li>image->[DISSECTOR_nameFull]正[circumstance_group]切开[CORPSE_nameFull]的身体</li>
+		<li>image->[DISSECTOR_nameFull]正[circumstance_group]捧着[CORPSE_nameFull]被剖开的心脏</li>
 		<li>circumstance_phrase->在[CORPSE_pronoun]开始腐烂后</li>
 		<li>circumstance_phrase->毛手毛脚地</li>
-		<li>circumstance_phrase->带着厌恶感</li>
-		<li>circumstance_phrase->怀着悲痛</li>
+		<li>circumstance_phrase->满脸厌恶地</li>
+		<li>circumstance_phrase->怀着悲痛地</li>
 		<li>desc_sentence->[DISSECTOR_nameShortDef]正怀着悲痛看着[CORPSE_nameDef]的遗体。</li>
 		<li>desc_sentence->[CORPSE_nameDef]正在被解剖。</li>
 		<li>desc_sentence->[CORPSE_nameDef]缺少了身体的一部分。</li>
@@ -94,9 +94,9 @@
         <li>tale_noun->[DISSECTOR_nameDef]正在解剖[CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef]正在被[DISSECTOR_nameDef]解剖</li>
         <li>tale_noun->[CORPSE_nameDef]的解剖手术</li>
-        <li>image->[DISSECTOR_nameFull]正在解剖来自[CORPSE_factionName]的[CORPSE_nameFull] [circumstance_group]</li>
-        <li>image->[DISSECTOR_nameFull]正在切开[CORPSE_nameFull]的身体 [circumstance_group]</li>
-        <li>image->[DISSECTOR_nameFull]正捧着[CORPSE_nameFull]被剖开的心脏 [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]解剖来自[CORPSE_factionName]的[CORPSE_nameFull]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]切开[CORPSE_nameFull]的身体</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]捧着[CORPSE_nameFull]被剖开的心脏</li>
         <li>circumstance_phrase->以专业的效率</li>
         <li>circumstance_phrase->喜悦溢于言表地</li>
         <li>desc_sentence->[CORPSE_nameDef]正在被解剖。</li>
@@ -125,9 +125,9 @@
         <li>tale_noun->[DISSECTOR_nameDef]正在解剖[CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef]正在被[DISSECTOR_nameDef]解剖</li>
         <li>tale_noun->[CORPSE_nameDef]的解剖手术</li>
-        <li>image->[DISSECTOR_nameFull]正在解剖来自[CORPSE_factionName]的[CORPSE_nameFull] [circumstance_group]</li>
-        <li>image->[DISSECTOR_nameFull]正在切开[CORPSE_nameFull]的身体 [circumstance_group]</li>
-        <li>image->[DISSECTOR_nameFull]正捧着[CORPSE_nameFull]被剖开的心脏 [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]解剖来自[CORPSE_factionName]的[CORPSE_nameFull]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]切开[CORPSE_nameFull]的身体</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]捧着[CORPSE_nameFull]被剖开的心脏</li>
         <li>circumstance_phrase->在[CORPSE_pronoun]开始腐烂后</li>
         <li>circumstance_phrase->毛手毛脚地</li>
         <li>circumstance_phrase->明显用力过猛地</li>
@@ -159,9 +159,9 @@
         <li>tale_noun->[DISSECTOR_nameDef]正在解剖[CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef]正在被[DISSECTOR_nameDef]解剖</li>
         <li>tale_noun->[CORPSE_nameDef]的解剖手术</li>
-        <li>image->[DISSECTOR_nameFull]正在解剖来自[CORPSE_factionName]的[CORPSE_nameFull] [circumstance_group]</li>
-        <li>image->[DISSECTOR_nameFull]正在切开[CORPSE_nameFull]的身体 [circumstance_group]</li>
-        <li>image->[DISSECTOR_nameFull]正捧着[CORPSE_nameFull]被剖开的心脏 [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]解剖来自[CORPSE_factionName]的[CORPSE_nameFull]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]切开[CORPSE_nameFull]的身体</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]捧着[CORPSE_nameFull]被剖开的心脏</li>
         <li>circumstance_phrase->明显用力过猛地</li>
         <li>circumstance_phrase->喜悦溢于言表地</li>
         <li>circumstance_phrase->眼中满含愤恨地</li>
@@ -193,9 +193,9 @@
         <li>tale_noun->[DISSECTOR_nameDef]正在解剖[CORPSE_nameDef]</li>
         <li>tale_noun->[CORPSE_nameDef]正在被[DISSECTOR_nameDef]解剖</li>
         <li>tale_noun->[CORPSE_nameDef]的解剖手术</li>
-        <li>image->[DISSECTOR_nameFull]正在解剖来自[CORPSE_factionName]的[CORPSE_nameFull] [circumstance_group]</li>
-        <li>image->[DISSECTOR_nameFull]正在切开[CORPSE_nameFull]的身体 [circumstance_group]</li>
-        <li>image->[DISSECTOR_nameFull]正捧着[CORPSE_nameFull]被剖开的心脏 [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]解剖来自[CORPSE_factionName]的[CORPSE_nameFull]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]切开[CORPSE_nameFull]的身体</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]捧着[CORPSE_nameFull]被剖开的心脏</li>
         <li>circumstance_phrase->毛手毛脚地</li>
         <li>circumstance_phrase->明显用力过猛地</li>
         <li>circumstance_phrase->眼中满含愤恨地</li>
