@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<DissectedFilter.label>允许已被解剖的尸体</DissectedFilter.label>
+	<DissectedFilter.description>允许已经被解剖的尸体。</DissectedFilter.description>
+	<NotDissectedFilter.label>允许未被解剖的尸体</NotDissectedFilter.label>
+	<NotDissectedFilter.description>允许尚未被解剖的尸体。</NotDissectedFilter.description>
+</LanguageData>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<MedicalTraining.labelShort>解剖</MedicalTraining.labelShort>
+	<MedicalTraining.pawnLabel>医学生</MedicalTraining.pawnLabel>
+	<MedicalTraining.gerundLabel>正在解剖</MedicalTraining.gerundLabel>
+	<MedicalTraining.description>解剖尸体以学习医学知识。\n(Medical Dissection mod)</MedicalTraining.description>
+	<MedicalTraining.verb>解剖</MedicalTraining.verb>
+</LanguageData>
