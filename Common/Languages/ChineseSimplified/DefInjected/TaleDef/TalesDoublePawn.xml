@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!--  ######################
+			Faction tales 
+		###################### -->
+	<!-- Colonist tales -->
+    <!-- EN: corpse dissected -->
+	<DissectedColonistWithPassionTale.label>解剖尸体</DissectedColonistWithPassionTale.label>
+	<!-- EN:
+		<li>tale_noun->[DISSECTOR_nameDef] dissecting [CORPSE_nameDef]</li>
+		<li>tale_noun->[CORPSE_nameDef] being dissected by [DISSECTOR_nameDef]</li>
+		<li>tale_noun->[CORPSE_nameDef]'s dissection</li>
+		<li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] of [CORPSE_factionName] [circumstance_group]</li>
+		<li>image->[DISSECTOR_nameFull] cutting [CORPSE_nameFull]'s body open [circumstance_group]</li>
+		<li>image->[DISSECTOR_nameFull] holding [CORPSE_nameFull]'s dissected heart [circumstance_group]</li>
+		<li>circumstance_phrase->with professional efficiency</li>
+		<li>circumstance_phrase->with grief</li>
+		<li>circumstance_phrase->with mixed feelings</li>
+		<li>desc_sentence->[DISSECTOR_nameShortDef] is looking at [CORPSE_nameDef]'s corpse with grief.</li>
+		<li>desc_sentence->[CORPSE_nameDef] is cut into pieces.</li>
+		<li>desc_sentence->[CORPSE_nameDef] is missing some body parts.</li>
+		<li>desc_sentence->[DISSECTOR_nameShortDef] is in the middle of a large pool of blood.</li>
+	-->
+    <DissectedColonistWithPassionTale.rulePack.rulesStrings>
+        <li>tale_noun->[DISSECTOR_nameDef]正在解剖[CORPSE_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef]正在被[DISSECTOR_nameDef]解剖</li>
+        <li>tale_noun->[CORPSE_nameDef]的解剖手术</li>
+        <li>image->[DISSECTOR_nameFull][circumstance_group]解剖来自[CORPSE_factionName]的[CORPSE_nameFull]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]切开[CORPSE_nameFull]的身体</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]捧着[CORPSE_nameFull]被剖开的心脏</li>
+        <li>circumstance_phrase->以专业的效率</li>
+        <li>circumstance_phrase->怀着悲痛地</li>
+        <li>circumstance_phrase->百感交集地</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef]正悲痛地看着[CORPSE_nameDef]的遗体。</li>
+        <li>desc_sentence->[CORPSE_nameDef]正在被解剖。</li>
+        <li>desc_sentence->[CORPSE_nameDef]缺少了身体的一部分。</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef]站在血泊之中。</li>
+    </DissectedColonistWithPassionTale.rulePack.rulesStrings>
+	
+    <!-- EN: corpse dissected -->
+    <DissectedColonistWithoutPassionTale.label>解剖尸体</DissectedColonistWithoutPassionTale.label>
+    <!-- EN:
+        <li>tale_noun->[DISSECTOR_nameDef] dissecting [CORPSE_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef] being dissected by [DISSECTOR_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef]'s dissection</li>
+        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] of [CORPSE_factionName] [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] cutting [CORPSE_nameFull]'s body open [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] holding [CORPSE_nameFull]'s dissected heart [circumstance_group]</li>
+        <li>circumstance_phrase->after [CORPSE_pronoun] began to rot</li>
+        <li>circumstance_phrase->roughly and amateurishly</li>
+        <li>circumstance_phrase->with disgust</li>
+        <li>circumstance_phrase->with grief</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is looking at [CORPSE_nameDef]'s corpse with grief.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is cut into pieces.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is missing some body parts.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is in the middle of a large pool of blood.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is accidentally cutting off [CORPSE_nameDef]'s ear.</li>
+    -->
+    <DissectedColonistWithoutPassionTale.rulePack.rulesStrings>
+		<li>tale_noun->[DISSECTOR_nameDef]正在解剖[CORPSE_nameDef]</li>
+		<li>tale_noun->[CORPSE_nameDef]正在被[DISSECTOR_nameDef]解剖</li>
+		<li>tale_noun->[CORPSE_nameDef]的解剖手术</li>
+		<li>image->[DISSECTOR_nameFull]正[circumstance_group]解剖来自[CORPSE_factionName]的[CORPSE_nameFull]</li>
+		<li>image->[DISSECTOR_nameFull]正[circumstance_group]切开[CORPSE_nameFull]的身体</li>
+		<li>image->[DISSECTOR_nameFull]正[circumstance_group]捧着[CORPSE_nameFull]被剖开的心脏</li>
+		<li>circumstance_phrase->在[CORPSE_pronoun]开始腐烂后</li>
+		<li>circumstance_phrase->毛手毛脚地</li>
+		<li>circumstance_phrase->满脸厌恶地</li>
+		<li>circumstance_phrase->怀着悲痛地</li>
+		<li>desc_sentence->[DISSECTOR_nameShortDef]正怀着悲痛看着[CORPSE_nameDef]的遗体。</li>
+		<li>desc_sentence->[CORPSE_nameDef]正在被解剖。</li>
+		<li>desc_sentence->[CORPSE_nameDef]缺少了身体的一部分。</li>
+		<li>desc_sentence->[DISSECTOR_nameShortDef]站在血泊之中。</li>
+		<li>desc_sentence->[DISSECTOR_nameShortDef]意外切掉了[CORPSE_nameDef]的耳朵。</li>
+    </DissectedColonistWithoutPassionTale.rulePack.rulesStrings>
+	
+	<!-- Stranger tales -->
+    <!-- EN: corpse dissected -->
+    <DissectedStrangerWithPassionTale.label>解剖尸体</DissectedStrangerWithPassionTale.label>
+    <!-- EN: 
+        <li>tale_noun->[DISSECTOR_nameDef] dissecting [CORPSE_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef] being dissected by [DISSECTOR_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef]'s dissection</li>
+        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] of [CORPSE_factionName] [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] cutting [CORPSE_nameFull]'s body open [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] holding [CORPSE_nameFull]'s dissected heart [circumstance_group]</li>
+        <li>circumstance_phrase->with professional efficiency</li>
+        <li>circumstance_phrase->with obvious pleasure</li>
+        <li>desc_sentence->[CORPSE_nameDef] is cut into pieces.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is missing some body parts.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is in the middle of a large pool of blood.</li>
+    -->
+    <DissectedStrangerWithPassionTale.rulePack.rulesStrings>
+        <li>tale_noun->[DISSECTOR_nameDef]正在解剖[CORPSE_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef]正在被[DISSECTOR_nameDef]解剖</li>
+        <li>tale_noun->[CORPSE_nameDef]的解剖手术</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]解剖来自[CORPSE_factionName]的[CORPSE_nameFull]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]切开[CORPSE_nameFull]的身体</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]捧着[CORPSE_nameFull]被剖开的心脏</li>
+        <li>circumstance_phrase->以专业的效率</li>
+        <li>circumstance_phrase->喜悦溢于言表地</li>
+        <li>desc_sentence->[CORPSE_nameDef]正在被解剖。</li>
+        <li>desc_sentence->[CORPSE_nameDef]缺少了身体的一部分。</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef]站在血泊之中。</li>
+    </DissectedStrangerWithPassionTale.rulePack.rulesStrings>
+	
+    <!-- EN: corpse dissected -->
+    <DissectedStrangerWithoutPassionTale.label>解剖尸体</DissectedStrangerWithoutPassionTale.label>
+    <!-- EN: 
+        <li>tale_noun->[DISSECTOR_nameDef] dissecting [CORPSE_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef] being dissected by [DISSECTOR_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef]'s dissection</li>
+        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] of [CORPSE_factionName] [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] cutting [CORPSE_nameFull]'s body open [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] holding [CORPSE_nameFull]'s dissected heart [circumstance_group]</li>
+        <li>circumstance_phrase->after [CORPSE_pronoun] began to rot</li>
+        <li>circumstance_phrase->roughly and amateurishly</li>
+        <li>circumstance_phrase->with obviously excessive force</li>
+        <li>desc_sentence->[CORPSE_nameDef] is cut into pieces.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is missing some body parts.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is in the middle of a large pool of blood.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is accidentally cutting off [CORPSE_nameDef]'s ear.</li>
+    -->
+    <DissectedStrangerWithoutPassionTale.rulePack.rulesStrings>
+        <li>tale_noun->[DISSECTOR_nameDef]正在解剖[CORPSE_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef]正在被[DISSECTOR_nameDef]解剖</li>
+        <li>tale_noun->[CORPSE_nameDef]的解剖手术</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]解剖来自[CORPSE_factionName]的[CORPSE_nameFull]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]切开[CORPSE_nameFull]的身体</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]捧着[CORPSE_nameFull]被剖开的心脏</li>
+        <li>circumstance_phrase->在[CORPSE_pronoun]开始腐烂后</li>
+        <li>circumstance_phrase->毛手毛脚地</li>
+        <li>circumstance_phrase->明显用力过猛地</li>
+        <li>desc_sentence->[CORPSE_nameDef]正在被解剖。</li>
+        <li>desc_sentence->[CORPSE_nameDef]缺少了身体的一部分。</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef]站在血泊之中。</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef]意外切掉了[CORPSE_nameDef]的耳朵。</li>
+    </DissectedStrangerWithoutPassionTale.rulePack.rulesStrings>
+  
+	<!-- Enemy tales -->
+    <!-- EN: corpse dissected -->
+    <DissectedEnemyWithPassionTale.label>解剖尸体</DissectedEnemyWithPassionTale.label>
+    <!-- EN: 
+        <li>tale_noun->[DISSECTOR_nameDef] dissecting [CORPSE_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef] being dissected by [DISSECTOR_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef]'s dissection</li>
+        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] of [CORPSE_factionName] [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] cutting [CORPSE_nameFull]'s body open [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] holding [CORPSE_nameFull]'s dissected heart [circumstance_group]</li>
+        <li>circumstance_phrase->with obviously excessive force</li>
+        <li>circumstance_phrase->with obvious pleasure</li>
+        <li>circumstance_phrase->with wrath in his eyes</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is looking at [CORPSE_nameDef]'s corpse with satisfaction.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is cut into pieces.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is missing some body parts.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is in the middle of a large pool of blood.</li>
+    -->
+    <DissectedEnemyWithPassionTale.rulePack.rulesStrings>
+        <li>tale_noun->[DISSECTOR_nameDef]正在解剖[CORPSE_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef]正在被[DISSECTOR_nameDef]解剖</li>
+        <li>tale_noun->[CORPSE_nameDef]的解剖手术</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]解剖来自[CORPSE_factionName]的[CORPSE_nameFull]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]切开[CORPSE_nameFull]的身体</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]捧着[CORPSE_nameFull]被剖开的心脏</li>
+        <li>circumstance_phrase->明显用力过猛地</li>
+        <li>circumstance_phrase->喜悦溢于言表地</li>
+        <li>circumstance_phrase->眼中满含愤恨地</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef]正满意地看着[CORPSE_nameDef]的尸体。</li>
+        <li>desc_sentence->[CORPSE_nameDef]正在被解剖。</li>
+        <li>desc_sentence->[CORPSE_nameDef]缺少了身体的一部分。</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef]站在血泊之中。</li>
+    </DissectedEnemyWithPassionTale.rulePack.rulesStrings>
+	
+    <!-- EN: corpse dissected -->
+    <DissectedEnemyWithoutPassionTale.label>解剖尸体</DissectedEnemyWithoutPassionTale.label>
+    <!-- EN: 
+        <li>tale_noun->[DISSECTOR_nameDef] dissecting [CORPSE_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef] being dissected by [DISSECTOR_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef]'s dissection</li>
+        <li>image->[DISSECTOR_nameFull] dissecting [CORPSE_nameFull] of [CORPSE_factionName] [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] cutting [CORPSE_nameFull]'s body open [circumstance_group]</li>
+        <li>image->[DISSECTOR_nameFull] holding [CORPSE_nameFull]'s dissected heart [circumstance_group]</li>
+        <li>circumstance_phrase->roughly and amateurishly</li>
+        <li>circumstance_phrase->with obviously excessive force</li>
+        <li>circumstance_phrase->with wrath in his eyes</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is looking at [CORPSE_nameDef]'s corpse with satisfaction.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is cut into pieces.</li>
+        <li>desc_sentence->[CORPSE_nameDef] is missing some body parts.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is in the middle of a large pool of blood.</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef] is cutting off [CORPSE_nameDef]'s ear.</li>
+    -->
+    <DissectedEnemyWithoutPassionTale.rulePack.rulesStrings>
+        <li>tale_noun->[DISSECTOR_nameDef]正在解剖[CORPSE_nameDef]</li>
+        <li>tale_noun->[CORPSE_nameDef]正在被[DISSECTOR_nameDef]解剖</li>
+        <li>tale_noun->[CORPSE_nameDef]的解剖手术</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]解剖来自[CORPSE_factionName]的[CORPSE_nameFull]</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]切开[CORPSE_nameFull]的身体</li>
+        <li>image->[DISSECTOR_nameFull]正[circumstance_group]捧着[CORPSE_nameFull]被剖开的心脏</li>
+        <li>circumstance_phrase->毛手毛脚地</li>
+        <li>circumstance_phrase->明显用力过猛地</li>
+        <li>circumstance_phrase->眼中满含愤恨地</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef]正满意地看着[CORPSE_nameDef]的尸体。</li>
+        <li>desc_sentence->[CORPSE_nameDef]正在被解剖。</li>
+        <li>desc_sentence->[CORPSE_nameDef]缺少了身体的一部分。</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef]站在血泊之中。</li>
+        <li>desc_sentence->[DISSECTOR_nameShortDef]意外切掉了[CORPSE_nameDef]的耳朵。</li>
+    </DissectedEnemyWithoutPassionTale.rulePack.rulesStrings>
+</LanguageData>
