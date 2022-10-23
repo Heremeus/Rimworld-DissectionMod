@@ -33,6 +33,16 @@ namespace HMDissection
             HarmonyMethod prefixmethod = new HarmonyMethod(typeof(HarmonyPatches).GetMethod("Notify_Resurrected_Prefix"));
             harmony.Patch(targetMethod, prefixmethod);
 
+            // Set dissection work type priority based on medicine passion for starting pawns
+            targetMethod = AccessTools.Method(typeof(GameInitData), "PrepForMapGen");
+            postfixmethod = new HarmonyMethod(typeof(WorkSettingsPatches).GetMethod("PrepForMapGen_Postfix"));
+            harmony.Patch(targetMethod, null, postfixmethod);
+
+            // Set dissection work type priority based on medicine passion for new pawns
+            targetMethod = AccessTools.Method(typeof(Pawn_WorkSettings), "EnableAndInitialize");
+            postfixmethod = new HarmonyMethod(typeof(WorkSettingsPatches).GetMethod("EnableAndInitialize_Postfix"));
+            harmony.Patch(targetMethod, null, postfixmethod);
+
             // Patch HasJobOnThing for Harvest Organs Post Morten to stop duplicate work givers
             if (ModsConfig.ActiveModsInLoadOrder.Any(m => m.Name.Contains("Harvest Organs Post Mortem")))
             {

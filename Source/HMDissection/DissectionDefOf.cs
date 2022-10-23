@@ -22,5 +22,6 @@ namespace HMDissection
         public static HediffDef DissectedHediff;
         public static BodyPartDef Lung;
         public static JobDef DoDissectionBill;
+        public static WorkTypeDef MedicalTraining;
     }
 }

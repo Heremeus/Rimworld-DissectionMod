@@ -49,7 +49,7 @@ namespace HMDissection
             yield return gotoBillGiver;
 
             // Strip body
-            Toil doDissectionRecipeWork = Toils_Dissection.DoDissectionRecipeWork().FailOnDespawnedNullOrForbiddenPlacedThings().FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
+            Toil doDissectionRecipeWork = Toils_Dissection.DoDissectionRecipeWork().FailOnDespawnedNullOrForbiddenPlacedThings(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
             yield return Toils_Jump.JumpIf(doDissectionRecipeWork, () =>
                 {
                     LocalTargetInfo targetInfo = job.GetTarget(TargetIndex.B);

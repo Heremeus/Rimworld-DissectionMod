@@ -8,7 +8,6 @@
 		<description>Train Medicine by dissecting corpses.\n(Medical Dissection mod)</description>
 		<verb>dissect</verb>
 		<naturalPriority>478</naturalPriority>
-		<alwaysStartActive>true</alwaysStartActive>
     <relevantSkills>
       <li>Medicine</li>
 		</relevantSkills>

@@ -136,7 +136,7 @@ namespace HMDissection
                 }
                 else
                 {
-                    Log.ErrorOnce("Unknown store mode", 9158246, false);
+                    Log.ErrorOnce("Unknown store mode", 9158246);
                 }
 
                 if (bestStoreCell.IsValid)
@@ -167,7 +167,7 @@ namespace HMDissection
                 IntVec3 cell = curJob.GetTarget(cellInd).Cell;
                 if (actor.carryTracker.CarriedThing == null)
                 {
-                    Log.Error(actor + " tried to place hauled thing in cell but is not hauling anything.", false);
+                    Log.Error(actor + " tried to place hauled thing in cell but is not hauling anything.");
                     return;
                 }
                 SlotGroup slotGroup = actor.Map.haulDestinationManager.SlotGroupAt(cell);
@@ -231,7 +231,7 @@ namespace HMDissection
                                 " near ",
                                 actor.Position,
                                 ". Destroying. This should never happen!"
-                            }), false);
+                            }));
                             actor.carryTracker.CarriedThing.Destroy(DestroyMode.Vanish);
                         }
                     }
@@ -322,7 +322,7 @@ namespace HMDissection
                 Pawn actor = toil.actor;
                 if (actor.carryTracker.CarriedThing == null)
                 {
-                    Log.Error("JumpToAlsoCollectTargetInQueue run on " + actor + " who is not carrying something.", false);
+                    Log.Error("JumpToAlsoCollectTargetInQueue run on " + actor + " who is not carrying something.");
                     return;
                 }
                 if (actor.carryTracker.Full)
