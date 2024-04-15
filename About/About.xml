@@ -11,12 +11,7 @@
 		<li>1.5</li>
   </supportedVersions>
 	<packageId>Heremeus.MedicalDissection</packageId>
-	<description>Unofficial Update of Netrves mod
-https://steamcommunity.com/sharedfiles/filedetails/?id=1328216966
-
-All credit goes to Heremeus for the work. I simply fixed some 1.5 bugs and compiled it.
-
-Medical Dissection adds a dissection table to the game, allowing your doctors to train on human corpses. You can add the mod to an existing save.
+	<description>Medical Dissection adds a dissection table to the game, allowing your doctors to train on human corpses. You can add the mod to an existing save.
 
 Feature overview
 - Performing dissections allows your doctors to train their medicine skill on humanoid corpses
