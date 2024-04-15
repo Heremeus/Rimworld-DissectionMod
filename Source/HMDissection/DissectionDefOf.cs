@@ -20,8 +20,20 @@ namespace HMDissection
         public static TaleDef DissectedEnemyWithoutPassionTale;
         public static RecipeDef DissectHumanRecipe;
         public static HediffDef DissectedHediff;
-        public static BodyPartDef Lung;
         public static JobDef DoDissectionBill;
         public static WorkTypeDef MedicalTraining;
+
+        public static TraitDef Cannibal;
+
+        public static BodyPartDef Arm;
+        public static BodyPartDef Leg;
+        public static BodyPartDef Jaw;
+        public static BodyPartDef Brain;
+        public static BodyPartDef Eye;
+        public static BodyPartDef Heart;
+        public static BodyPartDef Liver;
+        public static BodyPartDef Lung;
+        public static BodyPartDef Stomach;
+
     }
 }

@@ -12,15 +12,15 @@ namespace HMDissection
     {
         public static readonly HashSet<BodyPartDef> DissectableBodyParts = new HashSet<BodyPartDef>
         {
-            BodyPartDefOf.Arm,
-            BodyPartDefOf.Leg,
-            BodyPartDefOf.Jaw,
-            BodyPartDefOf.Brain,
-            BodyPartDefOf.Eye,
-            BodyPartDefOf.Heart,
-            BodyPartDefOf.Liver,
+            DissectionDefOf.Arm,
+            DissectionDefOf.Leg,
+            DissectionDefOf.Jaw,
+            DissectionDefOf.Brain,
+            DissectionDefOf.Eye,
+            DissectionDefOf.Heart,
+            DissectionDefOf.Liver,
             DissectionDefOf.Lung,
-            BodyPartDefOf.Stomach
+            DissectionDefOf.Stomach
         };
     }
 }
