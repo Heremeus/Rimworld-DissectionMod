@@ -53,3 +53,4 @@ You want to translate the mod into your language? Awesome! Make a copy of the [E
 * Implementation by Heremeus
 * Dissection Table texture by /u/Edward_StoneHammer
 * Chinese Simplified translation by 若月スバル/Etherrrr
+* Update for 1.5 by Greysuki/tomchang25
