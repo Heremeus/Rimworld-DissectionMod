@@ -20,10 +20,8 @@ namespace HMDissection
                 Job curJob = actor.jobs.curJob;
                 Thing thing = curJob.GetTarget(corpseIndex).Thing;
                 Designation designation = actor.Map.designationManager.DesignationOn(thing, DesignationDefOf.Strip);
-                if (designation != null)
-                {
-                    designation.Delete();
-                }
+                designation?.Delete();
+
                 if (thing is IStrippable strippable)
                 {
                     strippable.Strip();
@@ -132,11 +130,7 @@ namespace HMDissection
                 }
                 else if (curJob.bill.GetStoreMode() == BillStoreModeDefOf.SpecificStockpile)
                 {
-                    StoreUtility.TryFindBestBetterStoreCellForIn(corpse, actor, actor.Map, StoragePriority.Unstored, actor.Faction, curJob.bill.GetStoreZone().slotGroup, out bestStoreCell, true);
-                }
-                else
-                {
-                    Log.ErrorOnce("Unknown store mode", 9158246);
+                    StoreUtility.TryFindBestBetterStoreCellForIn(corpse, actor, actor.Map, StoragePriority.Unstored, actor.Faction, curJob.bill.GetSlotGroup(), out bestStoreCell, true);
                 }
 
                 if (bestStoreCell.IsValid)
@@ -250,7 +244,7 @@ namespace HMDissection
             if (worker.needs.mood != null)
             {
                 List<ThoughtDef> thoughts = new List<ThoughtDef>();
-                if (worker.skills.GetSkill(SkillDefOf.Medicine).passion == Passion.None && !worker.story.traits.HasTrait(TraitDefOf.Cannibal) && !worker.story.traits.HasTrait(TraitDefOf.Psychopath))
+                if (worker.skills.GetSkill(SkillDefOf.Medicine).passion == Passion.None && !worker.story.traits.HasTrait(DissectionDefOf.Cannibal) && !worker.story.traits.HasTrait(TraitDefOf.Psychopath))
                 {
                     thoughts.Add(DissectionDefOf.DissectionNoPassion);
                 }
