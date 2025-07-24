@@ -48,28 +48,29 @@ namespace HMDissection
                 curJob.bill.Notify_DoBillStarted(actor);
             };
 
+            // tickAction is called every frame and should only be used when necessary
             toil.tickAction = delegate
             {
                 Pawn actor = toil.actor;
                 Job curJob = actor.jobs.curJob;
-                JobDriver_DoBill jobDriver_DoBill = (JobDriver_DoBill)actor.jobs.curDriver;
 
-                jobDriver_DoBill.ticksSpentDoingRecipeWork++;
                 curJob.bill.Notify_PawnDidWork(actor);
                 if (toil.actor.CurJob.GetTarget(TargetIndex.A).Thing is IBillGiverWithTickAction billGiverWithTickAction)
                 {
                     billGiverWithTickAction.UsedThisTick();
                 }
+            };
 
-                if (!curJob.playerForced)
-                {
+            // tickIntervalAction is called every 15 frames for off-screen pawns and up to every 5 seconds for on-screen depending on zoom level
+            // Any non-urgent stuff should be done here
+            toil.tickIntervalAction = delegate(int delta)
+            {
+                Pawn actor = toil.actor;
+                JobDriver_DoBill jobDriver_DoBill = (JobDriver_DoBill)actor.jobs.curDriver;
 
-                }
+                jobDriver_DoBill.ticksSpentDoingRecipeWork += delta;
 
-                var passion = actor.skills.GetSkill(SkillDefOf.Medicine).passion;
-
-                float workDone = 1f * actor.GetStatValue(StatDefOf.WorkSpeedGlobal, true);
-
+                float workDone = 1f * actor.GetStatValue(StatDefOf.WorkSpeedGlobal, true) * delta;
                 if (DebugSettings.fastCrafting)
                 {
                     workDone *= 30f;
@@ -77,13 +78,14 @@ namespace HMDissection
 
                 jobDriver_DoBill.workLeft -= workDone;
 
-                actor.GainComfortFromCellIfPossible();
+                actor.GainComfortFromCellIfPossible(delta);
 
                 if (jobDriver_DoBill.workLeft <= 0f)
                 {
                     jobDriver_DoBill.ReadyForNextToil();
                 }
             };
+
             toil.defaultCompleteMode = ToilCompleteMode.Never;
             toil.WithEffect(() => toil.actor.CurJob.bill.recipe.effectWorking, TargetIndex.A);
             toil.PlaySustainerOrSound(() => toil.actor.CurJob.bill.recipe.soundWorking);
