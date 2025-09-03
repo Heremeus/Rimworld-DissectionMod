@@ -1,7 +1,0 @@
-\Screenshots
-\.git
-\Source
-\.gitignore
-\Todo.txt
-\exclude.txt
-\CopyModFolder.exe

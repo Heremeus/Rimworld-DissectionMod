@@ -47,7 +47,6 @@ namespace HMDissection
             yield return Toils_Dissection.PlaceHauledThingInCell(TargetIndex.C, findPlaceTarget, false);
             yield return Toils_Jump.JumpIfHaveTargetInQueue(TargetIndex.B, extract);
             yield return gotoBillGiver;
-
             // Strip body
             Toil doDissectionRecipeWork = Toils_Dissection.DoDissectionRecipeWork().FailOnDespawnedNullOrForbiddenPlacedThings(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
             yield return Toils_Jump.JumpIf(doDissectionRecipeWork, () =>
@@ -65,7 +64,6 @@ namespace HMDissection
             // Do dissection
             yield return doDissectionRecipeWork;
             yield return Toils_Dissection.FinishRecipeAndStartStoringCorpse(TargetIndex.B);
-
             yield return Toils_Reserve.Reserve(TargetIndex.C);
 
             // Go to storage cell and drop corpse

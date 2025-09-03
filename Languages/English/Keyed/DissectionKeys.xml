@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	<Dissection_MessageDestroyedByDoctor>{1} has accidentally destroyed {0}'s corpse during the dissection.</Dissection_MessageDestroyedByDoctor>
+	<Dissection_Tab>Medical Dissection</Dissection_Tab>
 	<Dissection_ExpSetting_title>Exp per corpse</Dissection_ExpSetting_title>
 	<Dissection_ExpSetting_desc>The amount of exp a default corpse yields (before calculating the individual corpse exp).</Dissection_ExpSetting_desc>
 	<Dissection_DailyLimitSetting_title>Ignore daily learning limit</Dissection_DailyLimitSetting_title>
