@@ -9,4 +9,7 @@
 	<Dissection_DestroyBodyChanceSetting_desc>解剖过程中破坏尸体的概率(0.0到1.0之间)。实际的概率会基于角色的医疗等级而低于设定值。设定为0时将永不破坏尸体。</Dissection_DestroyBodyChanceSetting_desc>
 	<Dissection_AlwaysDestroyBodiesSetting_title>必定破坏尸体</Dissection_AlwaysDestroyBodiesSetting_title>
 	<Dissection_AlwaysDestroyBodiesSetting_desc>该选项被启用时，解剖将必定破坏尸体。</Dissection_AlwaysDestroyBodiesSetting_desc>
+    <Dissection_Settings_Reset>重置为默认设置</Dissection_Settings_Reset>
+	<Dissection_MaxLevel_title>最大自动训练等级</Dissection_MaxLevel_title>
+	<Dissection_MaxLevel_desc>殖民者自动解剖尸体进行训练的最大医疗技能等级。超过此等级后，解剖必须手动指定，但仍可获得经验。</Dissection_MaxLevel_desc>
 </LanguageData>

@@ -9,4 +9,7 @@
 	<Dissection_DestroyBodyChanceSetting_desc>Die Basiswahrscheinlichkeit dass der Körper beim Sezieren zertstört wird (Zwischen 0.0 und 1.0). Die Tatsächliche Wahrscheinlichkeit ist niedriger und hängt vom Skill level ab. Auf 0 setzen, um niemals Körper zu zerstören.</Dissection_DestroyBodyChanceSetting_desc>
 	<Dissection_AlwaysDestroyBodiesSetting_title>Körper immer zerstören</Dissection_AlwaysDestroyBodiesSetting_title>
 	<Dissection_AlwaysDestroyBodiesSetting_desc>Körper werden beim Sezieren immer zertstört, wenn diese Option aktiviert ist.</Dissection_AlwaysDestroyBodiesSetting_desc>
+    <Dissection_Settings_Reset>Einstellungen auf Standard zurücksetzen</Dissection_Settings_Reset>
+    <Dissection_MaxLevel_title>Maximales Auto-Training Level</Dissection_MaxLevel_title>
+    <Dissection_MaxLevel_desc>Das maximale Medizin-Skill Level bis zu dem Kolonisten automatisch Leichen sezieren um zu trainieren. Über diesem Level muss Sezierung manuell angeordnet werden, kann aber weiterhin Erfahrung geben.</Dissection_MaxLevel_desc>
 </LanguageData>

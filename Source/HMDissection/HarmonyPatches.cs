@@ -11,10 +11,10 @@ namespace HMDissection
     [StaticConstructorOnStartup]
     static class HarmonyPatches
     {
-        // this static constructor runs to create a HarmonyInstance and install a patch.
+        // this static constructor runs to create a HarmonyInstance and install patches.
         static HarmonyPatches()
         {
-
+            Patch();
         }
 
         public static void Patch()

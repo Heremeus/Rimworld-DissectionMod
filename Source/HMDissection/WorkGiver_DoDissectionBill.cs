@@ -14,8 +14,9 @@ namespace HMDissection
 
         public override bool ShouldSkip(Pawn pawn, bool forced = false)
         {
+            Log.Message("Should Skip check");
             // Don't train medicine after exceeding full rate learning threshold or when maxed.
-            if (!Dissection.Singleton.IgnoreDailyLimit && !forced)
+            if (!Dissection.Singleton.Settings.IgnoreDailyLimit && !forced)
             {
                 SkillRecord medicineSkill = pawn.skills.GetSkill(SkillDefOf.Medicine);
                 float xpToday = medicineSkill.xpSinceMidnight;
@@ -25,8 +26,10 @@ namespace HMDissection
                     return true;
                 }
 
-                float xpExpected = medicineSkill.LearnRateFactor() * Dissection.Singleton.ExpPerCorpse;
-                if (medicineSkill.Level == SkillRecord.MaxLevel && medicineSkill.XpTotalEarned + xpExpected >= medicineSkill.XpRequiredForLevelUp)
+                float xpExpected = medicineSkill.LearnRateFactor() * Dissection.Singleton.Settings.ExpPerCorpse;
+                int stopLevel = Dissection.Singleton.Settings.MaxLevel;
+                Log.Message("Check max level: " + medicineSkill.Level + " / " + stopLevel);
+                if (medicineSkill.Level > stopLevel || (medicineSkill.Level == stopLevel && medicineSkill.XpTotalEarned + xpExpected >= medicineSkill.XpRequiredForLevelUp))
                 {
                     return true;
                 }

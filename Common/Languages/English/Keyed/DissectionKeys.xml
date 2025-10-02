@@ -9,4 +9,7 @@
 	<Dissection_DestroyBodyChanceSetting_desc>The base chance that a body is destroyed during the dissection (between 0.0 and 1.0). The actual chance is a lot lower depending on the dissector's medicine skill level. Set to 0 to never destroy a body.</Dissection_DestroyBodyChanceSetting_desc>
 	<Dissection_AlwaysDestroyBodiesSetting_title>Always destroy body</Dissection_AlwaysDestroyBodiesSetting_title>
 	<Dissection_AlwaysDestroyBodiesSetting_desc>Always destroys the body when dissecting, if this option is enabled.</Dissection_AlwaysDestroyBodiesSetting_desc>
+    <Dissection_Settings_Reset>Reset to Defaults</Dissection_Settings_Reset>
+    <Dissection_MaxLevel_title>Maximum auto-training level</Dissection_MaxLevel_title>
+    <Dissection_MaxLevel_desc>The maximum medical skill level up to which colonists will automatically dissect corpses for training. Beyond this level, dissection must be manually ordered but can still provide experience.</Dissection_MaxLevel_desc>
 </LanguageData>
