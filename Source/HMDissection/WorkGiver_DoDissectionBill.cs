@@ -14,7 +14,12 @@ namespace HMDissection
 
         public override bool ShouldSkip(Pawn pawn, bool forced = false)
         {
-            Log.Message("Should Skip check");
+            // Non-player pawns should not dissect
+            if (!pawn.Faction.IsPlayer || pawn.GuestStatus != null || (!pawn.HomeFaction?.IsPlayer ?? false) || pawn.IsBorrowedByAnyFaction() || (!pawn.SlaveFaction?.IsPlayer ?? false))
+            {
+                return true;
+            }
+
             // Don't train medicine after exceeding full rate learning threshold or when maxed.
             if (!Dissection.Singleton.Settings.IgnoreDailyLimit && !forced)
             {
@@ -28,7 +33,6 @@ namespace HMDissection
 
                 float xpExpected = medicineSkill.LearnRateFactor() * Dissection.Singleton.Settings.ExpPerCorpse;
                 int stopLevel = Dissection.Singleton.Settings.MaxLevel;
-                Log.Message("Check max level: " + medicineSkill.Level + " / " + stopLevel);
                 if (medicineSkill.Level > stopLevel || (medicineSkill.Level == stopLevel && medicineSkill.XpTotalEarned + xpExpected >= medicineSkill.XpRequiredForLevelUp))
                 {
                     return true;
